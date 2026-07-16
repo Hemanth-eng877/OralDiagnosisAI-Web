@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Patients | OralDiagnosisAI{% endblock %}
+{% block header_title %}Patient Records{% endblock %}
+{% block content %}
+<div class="hero-card mb-3">
+    <div class="hero-copy">
+        <p class="eyebrow">Patient management</p>
+        <h3>Maintain a polished care record for every patient</h3>
+        <p>Review patient details and access clinical actions from a single dashboard.</p>
+    </div>
+    <a href="{{ url_for('add_patient') }}" class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> Add Patient</a>
+</div>
+
+<section class="content-panel">
+    {% if patients %}
+    <div class="patient-grid">
+        {% for patient in patients %}
+        <article class="patient-card">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+                <div>
+                    <h5 class="patient-name">{{ patient.full_name }}</h5>
+                    <p class="muted mb-0">{{ patient.age or '-' }} years • {{ patient.gender or 'Not provided' }}</p>
+                </div>
+                <span class="tag">Active</span>
+            </div>
+            <p class="muted mb-1"><i class="fa-solid fa-phone me-2"></i>{{ patient.phone or 'Not provided' }}</p>
+            <p class="muted mb-1"><i class="fa-solid fa-envelope me-2"></i>{{ patient.email or 'Not provided' }}</p>
+            <p class="muted"><i class="fa-solid fa-note-sticky me-2"></i>{{ patient.notes or 'No clinical notes added.' }}</p>
+            <div class="d-flex gap-2 mt-3">
+                <a href="{{ url_for('edit_patient', patient_id=patient.id) }}" class="btn btn-outline-primary btn-sm">Edit</a>
+                <form action="{{ url_for('delete_patient', patient_id=patient.id) }}" method="post" class="d-inline" onsubmit="return confirm('Delete this patient record?');">
+                    <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                </form>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state">
+        <i class="fa-solid fa-user-slash fa-2x mb-2"></i>
+        <h5>No patient records yet</h5>
+        <p>Begin by creating a patient profile to support the next diagnosis.</p>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

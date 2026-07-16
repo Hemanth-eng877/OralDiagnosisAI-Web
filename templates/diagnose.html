@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Diagnosis | OralDiagnosisAI{% endblock %}
+{% block header_title %}Diagnostic Studio{% endblock %}
+{% block content %}
+<div class="row g-4">
+    <div class="col-lg-6">
+        <section class="content-panel h-100">
+            <p class="eyebrow">AI workflow</p>
+            <h3 class="h4 mb-3">Upload and analyze</h3>
+            <form method="post" enctype="multipart/form-data" class="vstack gap-3">
+                <div>
+                    <label for="patient_id" class="form-label">Patient</label>
+                    <select class="form-select" id="patient_id" name="patient_id" required>
+                        <option value="">Select patient</option>
+                        {% for patient in patients %}
+                        <option value="{{ patient.id }}">{{ patient.full_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <label class="form-label">Oral image</label>
+                    <label class="upload-zone" id="dropzone" for="image">
+                        <i class="fa-solid fa-cloud-arrow-up fa-2x mb-2"></i>
+                        <p class="mb-1 fw-semibold">Drag and drop image or click to browse</p>
+                        <small class="text-muted">PNG, JPG, JPEG, or WEBP up to 8 MB</small>
+                        <input type="file" id="image" name="image" accept=".png,.jpg,.jpeg,.webp" required>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-magic"></i> Run Diagnosis</button>
+            </form>
+        </section>
+    </div>
+    <div class="col-lg-6">
+        <section class="content-panel h-100">
+            {% if result %}
+            <p class="eyebrow">Result preview</p>
+            <div class="result-box {{ 'result-risk' if result.diagnosis == 'OSCC' else 'result-normal' }}">
+                <span>{{ result.patient.full_name }}</span>
+                <strong>{{ result.diagnosis }}</strong>
+                <small>{{ "%.2f"|format(result.confidence) }}% confidence</small>
+            </div>
+            <div class="preview-box mt-3">
+                <img src="{{ url_for('uploaded_file', filename=result.image_filename) }}" alt="Uploaded oral image" class="report-image">
+            </div>
+            {% else %}
+            <div class="empty-state">
+                <i class="fa-solid fa-image fa-2x mb-2"></i>
+                <h3 class="h5">Awaiting Image</h3>
+                <p>Select a patient and upload an oral image to generate a diagnostic prediction.</p>
+            </div>
+            {% endif %}
+        </section>
+    </div>
+</div>
+
+<script>
+const dropzone = document.getElementById('dropzone');
+const imageInput = document.getElementById('image');
+if (dropzone && imageInput) {
+    ['dragenter','dragover'].forEach(eventName => {
+        dropzone.addEventListener(eventName, (event) => {
+            event.preventDefault();
+            dropzone.classList.add('dragover');
+        });
+    });
+    ['dragleave','dragend','drop'].forEach(eventName => {
+        dropzone.addEventListener(eventName, () => dropzone.classList.remove('dragover'));
+    });
+    dropzone.addEventListener('drop', (event) => {
+        event.preventDefault();
+        if (event.dataTransfer.files && event.dataTransfer.files[0]) {
+            imageInput.files = event.dataTransfer.files;
+        }
+    });
+}
+</script>
+{% endblock %}
