@@ -28,6 +28,8 @@ MODEL_PATH = os.path.join(BASE_DIR, "oral_model.tflite")
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "webp"}
 CLASS_LABELS = {0: "Normal", 1: "OSCC"}
 
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "change-this-secret-key-in-production")
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
@@ -603,6 +605,5 @@ def uploaded_file(filename):
 
 
 if __name__ == "__main__":
-    os.makedirs(UPLOAD_FOLDER, exist_ok=True)
     load_model()
     app.run(debug=False, host="127.0.0.1", port=5000)
