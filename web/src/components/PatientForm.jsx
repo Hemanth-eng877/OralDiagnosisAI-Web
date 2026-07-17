@@ -89,23 +89,23 @@ export default function PatientForm({ existing, onDone, setNotification }) {
     <form onSubmit={handleSubmit}>
       <div className="row g-2">
         <div className="col-md-4">
-          <label className="form-label">Patient ID</label>
-          <input name="patientId" value={form.patientId} onChange={handleChange} className={`form-control ${errors.patientId ? 'is-invalid' : ''}`} />
+          <label className="form-label" htmlFor="patient-id">Patient ID</label>
+          <input id="patient-id" name="patientId" value={form.patientId} onChange={handleChange} className={`form-control ${errors.patientId ? 'is-invalid' : ''}`} />
           <div className="invalid-feedback">{errors.patientId}</div>
         </div>
         <div className="col-md-8">
-          <label className="form-label">Name</label>
-          <input name="name" value={form.name} onChange={handleChange} className={`form-control ${errors.name ? 'is-invalid' : ''}`} />
+          <label className="form-label" htmlFor="patient-name">Name</label>
+          <input id="patient-name" name="name" value={form.name} onChange={handleChange} className={`form-control ${errors.name ? 'is-invalid' : ''}`} />
           <div className="invalid-feedback">{errors.name}</div>
         </div>
         <div className="col-md-2">
-          <label className="form-label">Age</label>
-          <input name="age" value={form.age} onChange={handleChange} className={`form-control ${errors.age ? 'is-invalid' : ''}`} />
+          <label className="form-label" htmlFor="patient-age">Age</label>
+          <input id="patient-age" name="age" value={form.age} onChange={handleChange} className={`form-control ${errors.age ? 'is-invalid' : ''}`} />
           <div className="invalid-feedback">{errors.age}</div>
         </div>
         <div className="col-md-2">
-          <label className="form-label">Gender</label>
-          <select name="gender" value={form.gender} onChange={handleChange} className={`form-select ${errors.gender ? 'is-invalid' : ''}`}>
+          <label className="form-label" htmlFor="patient-gender">Gender</label>
+          <select id="patient-gender" name="gender" value={form.gender} onChange={handleChange} className={`form-select ${errors.gender ? 'is-invalid' : ''}`}>
             <option value="">Select</option>
             <option>Male</option>
             <option>Female</option>
@@ -114,33 +114,33 @@ export default function PatientForm({ existing, onDone, setNotification }) {
           <div className="invalid-feedback">{errors.gender}</div>
         </div>
         <div className="col-md-4">
-          <label className="form-label">Phone</label>
-          <input name="phone" value={form.phone} onChange={handleChange} className={`form-control ${errors.phone ? 'is-invalid' : ''}`} />
+          <label className="form-label" htmlFor="patient-phone">Phone</label>
+          <input id="patient-phone" name="phone" value={form.phone} onChange={handleChange} className={`form-control ${errors.phone ? 'is-invalid' : ''}`} />
           <div className="invalid-feedback">{errors.phone}</div>
         </div>
         <div className="col-md-6">
-          <label className="form-label">Email</label>
-          <input name="email" value={form.email} onChange={handleChange} className="form-control" />
+          <label className="form-label" htmlFor="patient-email">Email</label>
+          <input id="patient-email" name="email" value={form.email} onChange={handleChange} className="form-control" />
         </div>
         <div className="col-12">
-          <label className="form-label">Address</label>
-          <input name="address" value={form.address} onChange={handleChange} className="form-control" />
+          <label className="form-label" htmlFor="patient-address">Address</label>
+          <input id="patient-address" name="address" value={form.address} onChange={handleChange} className="form-control" />
         </div>
         <div className="col-md-6">
-          <label className="form-label">Diagnosis</label>
-          <input name="diagnosis" value={form.diagnosis} onChange={handleChange} className="form-control" />
+          <label className="form-label" htmlFor="patient-diagnosis">Diagnosis</label>
+          <input id="patient-diagnosis" name="diagnosis" value={form.diagnosis} onChange={handleChange} className="form-control" />
         </div>
         <div className="col-md-6">
-          <label className="form-label">Confidence</label>
-          <input name="confidence" value={form.confidence} onChange={handleChange} className="form-control" />
+          <label className="form-label" htmlFor="patient-confidence">Confidence</label>
+          <input id="patient-confidence" name="confidence" value={form.confidence} onChange={handleChange} className="form-control" />
         </div>
         <div className="col-md-6">
-          <label className="form-label">Doctor Name</label>
-          <input name="doctorName" value={form.doctorName} onChange={handleChange} className="form-control" />
+          <label className="form-label" htmlFor="patient-doctor-name">Doctor Name</label>
+          <input id="patient-doctor-name" name="doctorName" value={form.doctorName} onChange={handleChange} className="form-control" />
         </div>
         <div className="col-md-6">
-          <label className="form-label">Appointment Date</label>
-          <input type="date" name="appointmentDate" value={form.appointmentDate} onChange={handleChange} className="form-control" />
+          <label className="form-label" htmlFor="patient-appointment-date">Appointment Date</label>
+          <input id="patient-appointment-date" type="date" name="appointmentDate" value={form.appointmentDate} onChange={handleChange} className="form-control" />
         </div>
       </div>
 
