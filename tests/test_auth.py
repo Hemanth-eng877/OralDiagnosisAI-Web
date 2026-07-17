@@ -1,12 +1,22 @@
 import time
+import urllib.request
 import uuid
 
+import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 
 
 BASE_URL = "http://127.0.0.1:5000"
+
+
+def server_available():
+    try:
+        with urllib.request.urlopen(f"{BASE_URL}/", timeout=2) as response:
+            return response.status < 500
+    except Exception:
+        return False
 
 
 def make_driver():
@@ -16,6 +26,7 @@ def make_driver():
     return webdriver.Chrome(options=options)
 
 
+@pytest.mark.skipif(not server_available(), reason="Flask app is not running")
 def test_login_flow():
     driver = make_driver()
     email = f"clinician_{uuid.uuid4().hex[:8]}@example.com"

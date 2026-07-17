@@ -1,0 +1,1202 @@
+[
+  {
+    "id": "TC-001",
+    "title": "Verify signup behaves correctly for the functional testing scenario",
+    "category": "Functional Testing",
+    "feature": "signup",
+    "priority": "Medium",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-002",
+    "title": "Verify login behaves correctly for the functional testing scenario",
+    "category": "Functional Testing",
+    "feature": "login",
+    "priority": "High",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-003",
+    "title": "Verify logout behaves correctly for the functional testing scenario",
+    "category": "Functional Testing",
+    "feature": "logout",
+    "priority": "Low",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-004",
+    "title": "Verify dashboard behaves correctly for the functional testing scenario",
+    "category": "Functional Testing",
+    "feature": "dashboard",
+    "priority": "Medium",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-005",
+    "title": "Verify patient registration behaves correctly for the functional testing scenario",
+    "category": "Functional Testing",
+    "feature": "patient registration",
+    "priority": "High",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-006",
+    "title": "Verify patient edit behaves correctly for the functional testing scenario",
+    "category": "Functional Testing",
+    "feature": "patient edit",
+    "priority": "Low",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-007",
+    "title": "Verify patient delete behaves correctly for the functional testing scenario",
+    "category": "Functional Testing",
+    "feature": "patient delete",
+    "priority": "Medium",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-008",
+    "title": "Verify diagnose submission behaves correctly for the functional testing scenario",
+    "category": "Functional Testing",
+    "feature": "diagnose submission",
+    "priority": "High",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-009",
+    "title": "Verify report search behaves correctly for the functional testing scenario",
+    "category": "Functional Testing",
+    "feature": "report search",
+    "priority": "Low",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-010",
+    "title": "Verify image upload behaves correctly for the functional testing scenario",
+    "category": "Functional Testing",
+    "feature": "image upload",
+    "priority": "Medium",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-011",
+    "title": "Verify signup form behaves correctly for the ui testing scenario",
+    "category": "UI Testing",
+    "feature": "signup form",
+    "priority": "Low",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-012",
+    "title": "Verify login form behaves correctly for the ui testing scenario",
+    "category": "UI Testing",
+    "feature": "login form",
+    "priority": "Medium",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-013",
+    "title": "Verify patient form behaves correctly for the ui testing scenario",
+    "category": "UI Testing",
+    "feature": "patient form",
+    "priority": "High",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-014",
+    "title": "Verify patient table behaves correctly for the ui testing scenario",
+    "category": "UI Testing",
+    "feature": "patient table",
+    "priority": "Low",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-015",
+    "title": "Verify dashboard cards behaves correctly for the ui testing scenario",
+    "category": "UI Testing",
+    "feature": "dashboard cards",
+    "priority": "Medium",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-016",
+    "title": "Verify report table behaves correctly for the ui testing scenario",
+    "category": "UI Testing",
+    "feature": "report table",
+    "priority": "High",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-017",
+    "title": "Verify search box behaves correctly for the ui testing scenario",
+    "category": "UI Testing",
+    "feature": "search box",
+    "priority": "Low",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-018",
+    "title": "Verify flash notifications behaves correctly for the ui testing scenario",
+    "category": "UI Testing",
+    "feature": "flash notifications",
+    "priority": "Medium",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-019",
+    "title": "Verify loading indicator behaves correctly for the ui testing scenario",
+    "category": "UI Testing",
+    "feature": "loading indicator",
+    "priority": "High",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-020",
+    "title": "Verify action buttons behaves correctly for the ui testing scenario",
+    "category": "UI Testing",
+    "feature": "action buttons",
+    "priority": "Low",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-021",
+    "title": "Verify success feedback behaves correctly for the ux testing scenario",
+    "category": "UX Testing",
+    "feature": "success feedback",
+    "priority": "High",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-022",
+    "title": "Verify error clarity behaves correctly for the ux testing scenario",
+    "category": "UX Testing",
+    "feature": "error clarity",
+    "priority": "Low",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-023",
+    "title": "Verify empty state guidance behaves correctly for the ux testing scenario",
+    "category": "UX Testing",
+    "feature": "empty state guidance",
+    "priority": "Medium",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-024",
+    "title": "Verify navigation flow behaves correctly for the ux testing scenario",
+    "category": "UX Testing",
+    "feature": "navigation flow",
+    "priority": "High",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-025",
+    "title": "Verify confirmation messaging behaves correctly for the ux testing scenario",
+    "category": "UX Testing",
+    "feature": "confirmation messaging",
+    "priority": "Low",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-026",
+    "title": "Verify dashboard summaries behaves correctly for the ux testing scenario",
+    "category": "UX Testing",
+    "feature": "dashboard summaries",
+    "priority": "Medium",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-027",
+    "title": "Verify search affordance behaves correctly for the ux testing scenario",
+    "category": "UX Testing",
+    "feature": "search affordance",
+    "priority": "High",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-028",
+    "title": "Verify progress cues behaves correctly for the ux testing scenario",
+    "category": "UX Testing",
+    "feature": "progress cues",
+    "priority": "Low",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-029",
+    "title": "Verify workflow continuity behaves correctly for the ux testing scenario",
+    "category": "UX Testing",
+    "feature": "workflow continuity",
+    "priority": "Medium",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-030",
+    "title": "Verify recovery after failure behaves correctly for the ux testing scenario",
+    "category": "UX Testing",
+    "feature": "recovery after failure",
+    "priority": "High",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-031",
+    "title": "Verify allowed_file behaves correctly for the unit testing scenario",
+    "category": "Unit Testing",
+    "feature": "allowed_file",
+    "priority": "Medium",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-032",
+    "title": "Verify preprocess_image behaves correctly for the unit testing scenario",
+    "category": "Unit Testing",
+    "feature": "preprocess_image",
+    "priority": "High",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-033",
+    "title": "Verify patient form validation behaves correctly for the unit testing scenario",
+    "category": "Unit Testing",
+    "feature": "patient form validation",
+    "priority": "Low",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-034",
+    "title": "Verify PatientForm submission payload behaves correctly for the unit testing scenario",
+    "category": "Unit Testing",
+    "feature": "PatientForm submission payload",
+    "priority": "Medium",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-035",
+    "title": "Verify PatientList sorting behaves correctly for the unit testing scenario",
+    "category": "Unit Testing",
+    "feature": "PatientList sorting",
+    "priority": "High",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-036",
+    "title": "Verify PatientList search filter behaves correctly for the unit testing scenario",
+    "category": "Unit Testing",
+    "feature": "PatientList search filter",
+    "priority": "Low",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-037",
+    "title": "Verify Notification rendering behaves correctly for the unit testing scenario",
+    "category": "Unit Testing",
+    "feature": "Notification rendering",
+    "priority": "Medium",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-038",
+    "title": "Verify Loading component behaves correctly for the unit testing scenario",
+    "category": "Unit Testing",
+    "feature": "Loading component",
+    "priority": "High",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-039",
+    "title": "Verify Firestore service helper behaves correctly for the unit testing scenario",
+    "category": "Unit Testing",
+    "feature": "Firestore service helper",
+    "priority": "Low",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-040",
+    "title": "Verify route guard helper behaves correctly for the unit testing scenario",
+    "category": "Unit Testing",
+    "feature": "route guard helper",
+    "priority": "Medium",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-041",
+    "title": "Verify signup to login behaves correctly for the integration testing scenario",
+    "category": "Integration Testing",
+    "feature": "signup to login",
+    "priority": "Low",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-042",
+    "title": "Verify signup to patient add behaves correctly for the integration testing scenario",
+    "category": "Integration Testing",
+    "feature": "signup to patient add",
+    "priority": "Medium",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-043",
+    "title": "Verify patient add to diagnose behaves correctly for the integration testing scenario",
+    "category": "Integration Testing",
+    "feature": "patient add to diagnose",
+    "priority": "High",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-044",
+    "title": "Verify diagnose to reports behaves correctly for the integration testing scenario",
+    "category": "Integration Testing",
+    "feature": "diagnose to reports",
+    "priority": "Low",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-045",
+    "title": "Verify login to dashboard behaves correctly for the integration testing scenario",
+    "category": "Integration Testing",
+    "feature": "login to dashboard",
+    "priority": "Medium",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-046",
+    "title": "Verify frontend form to service behaves correctly for the integration testing scenario",
+    "category": "Integration Testing",
+    "feature": "frontend form to service",
+    "priority": "High",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-047",
+    "title": "Verify service to Firebase behaves correctly for the integration testing scenario",
+    "category": "Integration Testing",
+    "feature": "service to Firebase",
+    "priority": "Low",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-048",
+    "title": "Verify dashboard to report list behaves correctly for the integration testing scenario",
+    "category": "Integration Testing",
+    "feature": "dashboard to report list",
+    "priority": "Medium",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-049",
+    "title": "Verify patient CRUD workflow behaves correctly for the integration testing scenario",
+    "category": "Integration Testing",
+    "feature": "patient CRUD workflow",
+    "priority": "High",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-050",
+    "title": "Verify session persistence behaves correctly for the integration testing scenario",
+    "category": "Integration Testing",
+    "feature": "session persistence",
+    "priority": "Low",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-051",
+    "title": "Verify required field checks behaves correctly for the validation testing scenario",
+    "category": "Validation Testing",
+    "feature": "required field checks",
+    "priority": "High",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-052",
+    "title": "Verify email format behaves correctly for the validation testing scenario",
+    "category": "Validation Testing",
+    "feature": "email format",
+    "priority": "Low",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-053",
+    "title": "Verify password length behaves correctly for the validation testing scenario",
+    "category": "Validation Testing",
+    "feature": "password length",
+    "priority": "Medium",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-054",
+    "title": "Verify patient age numeric behaves correctly for the validation testing scenario",
+    "category": "Validation Testing",
+    "feature": "patient age numeric",
+    "priority": "High",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-055",
+    "title": "Verify image file extension behaves correctly for the validation testing scenario",
+    "category": "Validation Testing",
+    "feature": "image file extension",
+    "priority": "Low",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-056",
+    "title": "Verify image required on diagnose behaves correctly for the validation testing scenario",
+    "category": "Validation Testing",
+    "feature": "image required on diagnose",
+    "priority": "Medium",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-057",
+    "title": "Verify patient selection validation behaves correctly for the validation testing scenario",
+    "category": "Validation Testing",
+    "feature": "patient selection validation",
+    "priority": "High",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-058",
+    "title": "Verify duplicate email prevention behaves correctly for the validation testing scenario",
+    "category": "Validation Testing",
+    "feature": "duplicate email prevention",
+    "priority": "Low",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-059",
+    "title": "Verify missing patient name behaves correctly for the validation testing scenario",
+    "category": "Validation Testing",
+    "feature": "missing patient name",
+    "priority": "Medium",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-060",
+    "title": "Verify missing image filename behaves correctly for the validation testing scenario",
+    "category": "Validation Testing",
+    "feature": "missing image filename",
+    "priority": "High",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-061",
+    "title": "Verify home redirect behaves correctly for the smoke testing scenario",
+    "category": "Smoke Testing",
+    "feature": "home redirect",
+    "priority": "Medium",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-062",
+    "title": "Verify login page load behaves correctly for the smoke testing scenario",
+    "category": "Smoke Testing",
+    "feature": "login page load",
+    "priority": "High",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-063",
+    "title": "Verify dashboard load behaves correctly for the smoke testing scenario",
+    "category": "Smoke Testing",
+    "feature": "dashboard load",
+    "priority": "Low",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-064",
+    "title": "Verify patient page load behaves correctly for the smoke testing scenario",
+    "category": "Smoke Testing",
+    "feature": "patient page load",
+    "priority": "Medium",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-065",
+    "title": "Verify diagnose page load behaves correctly for the smoke testing scenario",
+    "category": "Smoke Testing",
+    "feature": "diagnose page load",
+    "priority": "High",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-066",
+    "title": "Verify reports page load behaves correctly for the smoke testing scenario",
+    "category": "Smoke Testing",
+    "feature": "reports page load",
+    "priority": "Low",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-067",
+    "title": "Verify signup page load behaves correctly for the smoke testing scenario",
+    "category": "Smoke Testing",
+    "feature": "signup page load",
+    "priority": "Medium",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-068",
+    "title": "Verify logout flow behaves correctly for the smoke testing scenario",
+    "category": "Smoke Testing",
+    "feature": "logout flow",
+    "priority": "High",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-069",
+    "title": "Verify static assets load behaves correctly for the smoke testing scenario",
+    "category": "Smoke Testing",
+    "feature": "static assets load",
+    "priority": "Low",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-070",
+    "title": "Verify app bootstrap behaves correctly for the smoke testing scenario",
+    "category": "Smoke Testing",
+    "feature": "app bootstrap",
+    "priority": "Medium",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-071",
+    "title": "Verify auth changes behaves correctly for the regression testing scenario",
+    "category": "Regression Testing",
+    "feature": "auth changes",
+    "priority": "Low",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-072",
+    "title": "Verify patient CRUD stability behaves correctly for the regression testing scenario",
+    "category": "Regression Testing",
+    "feature": "patient CRUD stability",
+    "priority": "Medium",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-073",
+    "title": "Verify diagnosis storage stability behaves correctly for the regression testing scenario",
+    "category": "Regression Testing",
+    "feature": "diagnosis storage stability",
+    "priority": "High",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-074",
+    "title": "Verify report search stability behaves correctly for the regression testing scenario",
+    "category": "Regression Testing",
+    "feature": "report search stability",
+    "priority": "Low",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-075",
+    "title": "Verify template rendering stability behaves correctly for the regression testing scenario",
+    "category": "Regression Testing",
+    "feature": "template rendering stability",
+    "priority": "Medium",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-076",
+    "title": "Verify navigation stability behaves correctly for the regression testing scenario",
+    "category": "Regression Testing",
+    "feature": "navigation stability",
+    "priority": "High",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-077",
+    "title": "Verify session cleanup stability behaves correctly for the regression testing scenario",
+    "category": "Regression Testing",
+    "feature": "session cleanup stability",
+    "priority": "Low",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-078",
+    "title": "Verify model fallback stability behaves correctly for the regression testing scenario",
+    "category": "Regression Testing",
+    "feature": "model fallback stability",
+    "priority": "Medium",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-079",
+    "title": "Verify Firebase init stability behaves correctly for the regression testing scenario",
+    "category": "Regression Testing",
+    "feature": "Firebase init stability",
+    "priority": "High",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-080",
+    "title": "Verify form submission stability behaves correctly for the regression testing scenario",
+    "category": "Regression Testing",
+    "feature": "form submission stability",
+    "priority": "Low",
+    "automation": "Automated",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-081",
+    "title": "Verify protected route access behaves correctly for the security testing scenario",
+    "category": "Security Testing",
+    "feature": "protected route access",
+    "priority": "High",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-082",
+    "title": "Verify session fixation behaves correctly for the security testing scenario",
+    "category": "Security Testing",
+    "feature": "session fixation",
+    "priority": "Low",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-083",
+    "title": "Verify password hashing behaves correctly for the security testing scenario",
+    "category": "Security Testing",
+    "feature": "password hashing",
+    "priority": "Medium",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-084",
+    "title": "Verify prevent user ID spoofing behaves correctly for the security testing scenario",
+    "category": "Security Testing",
+    "feature": "prevent user ID spoofing",
+    "priority": "High",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-085",
+    "title": "Verify prevent cross-user data access behaves correctly for the security testing scenario",
+    "category": "Security Testing",
+    "feature": "prevent cross-user data access",
+    "priority": "Low",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-086",
+    "title": "Verify secure file handling behaves correctly for the security testing scenario",
+    "category": "Security Testing",
+    "feature": "secure file handling",
+    "priority": "Medium",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-087",
+    "title": "Verify file upload restrictions behaves correctly for the security testing scenario",
+    "category": "Security Testing",
+    "feature": "file upload restrictions",
+    "priority": "High",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-088",
+    "title": "Verify flash message exposure behaves correctly for the security testing scenario",
+    "category": "Security Testing",
+    "feature": "flash message exposure",
+    "priority": "Low",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-089",
+    "title": "Verify missing login redirect behaves correctly for the security testing scenario",
+    "category": "Security Testing",
+    "feature": "missing login redirect",
+    "priority": "Medium",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-090",
+    "title": "Verify CSRF-safe form posting behaves correctly for the security testing scenario",
+    "category": "Security Testing",
+    "feature": "CSRF-safe form posting",
+    "priority": "High",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-091",
+    "title": "Verify dashboard load behaves correctly for the performance testing scenario",
+    "category": "Performance Testing",
+    "feature": "dashboard load",
+    "priority": "Medium",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-092",
+    "title": "Verify patient list render behaves correctly for the performance testing scenario",
+    "category": "Performance Testing",
+    "feature": "patient list render",
+    "priority": "High",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-093",
+    "title": "Verify report search response behaves correctly for the performance testing scenario",
+    "category": "Performance Testing",
+    "feature": "report search response",
+    "priority": "Low",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-094",
+    "title": "Verify image preprocessing behaves correctly for the performance testing scenario",
+    "category": "Performance Testing",
+    "feature": "image preprocessing",
+    "priority": "Medium",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-095",
+    "title": "Verify large patient dataset behaves correctly for the performance testing scenario",
+    "category": "Performance Testing",
+    "feature": "large patient dataset",
+    "priority": "High",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-096",
+    "title": "Verify repeated login attempts behaves correctly for the performance testing scenario",
+    "category": "Performance Testing",
+    "feature": "repeated login attempts",
+    "priority": "Low",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-097",
+    "title": "Verify concurrent uploads behaves correctly for the performance testing scenario",
+    "category": "Performance Testing",
+    "feature": "concurrent uploads",
+    "priority": "Medium",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-098",
+    "title": "Verify report export handling behaves correctly for the performance testing scenario",
+    "category": "Performance Testing",
+    "feature": "report export handling",
+    "priority": "High",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-099",
+    "title": "Verify route rendering under load behaves correctly for the performance testing scenario",
+    "category": "Performance Testing",
+    "feature": "route rendering under load",
+    "priority": "Low",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-100",
+    "title": "Verify image save performance behaves correctly for the performance testing scenario",
+    "category": "Performance Testing",
+    "feature": "image save performance",
+    "priority": "Medium",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-101",
+    "title": "Verify Chromium browser behaves correctly for the compatibility testing scenario",
+    "category": "Compatibility Testing",
+    "feature": "Chromium browser",
+    "priority": "Low",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-102",
+    "title": "Verify Firefox browser behaves correctly for the compatibility testing scenario",
+    "category": "Compatibility Testing",
+    "feature": "Firefox browser",
+    "priority": "Medium",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-103",
+    "title": "Verify Edge browser behaves correctly for the compatibility testing scenario",
+    "category": "Compatibility Testing",
+    "feature": "Edge browser",
+    "priority": "High",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-104",
+    "title": "Verify mobile viewport behaves correctly for the compatibility testing scenario",
+    "category": "Compatibility Testing",
+    "feature": "mobile viewport",
+    "priority": "Low",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-105",
+    "title": "Verify tablet viewport behaves correctly for the compatibility testing scenario",
+    "category": "Compatibility Testing",
+    "feature": "tablet viewport",
+    "priority": "Medium",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-106",
+    "title": "Verify Vite build behaves correctly for the compatibility testing scenario",
+    "category": "Compatibility Testing",
+    "feature": "Vite build",
+    "priority": "High",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-107",
+    "title": "Verify Python Flask startup behaves correctly for the compatibility testing scenario",
+    "category": "Compatibility Testing",
+    "feature": "Python Flask startup",
+    "priority": "Low",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-108",
+    "title": "Verify Firebase config handling behaves correctly for the compatibility testing scenario",
+    "category": "Compatibility Testing",
+    "feature": "Firebase config handling",
+    "priority": "Medium",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-109",
+    "title": "Verify static asset delivery behaves correctly for the compatibility testing scenario",
+    "category": "Compatibility Testing",
+    "feature": "static asset delivery",
+    "priority": "High",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-110",
+    "title": "Verify different image formats behaves correctly for the compatibility testing scenario",
+    "category": "Compatibility Testing",
+    "feature": "different image formats",
+    "priority": "Low",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-111",
+    "title": "Verify form labels behaves correctly for the accessibility testing scenario",
+    "category": "Accessibility Testing",
+    "feature": "form labels",
+    "priority": "High",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-112",
+    "title": "Verify button semantics behaves correctly for the accessibility testing scenario",
+    "category": "Accessibility Testing",
+    "feature": "button semantics",
+    "priority": "Low",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-113",
+    "title": "Verify keyboard navigation behaves correctly for the accessibility testing scenario",
+    "category": "Accessibility Testing",
+    "feature": "keyboard navigation",
+    "priority": "Medium",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-114",
+    "title": "Verify focus management behaves correctly for the accessibility testing scenario",
+    "category": "Accessibility Testing",
+    "feature": "focus management",
+    "priority": "High",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-115",
+    "title": "Verify alt text behaves correctly for the accessibility testing scenario",
+    "category": "Accessibility Testing",
+    "feature": "alt text",
+    "priority": "Low",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-116",
+    "title": "Verify contrast readability behaves correctly for the accessibility testing scenario",
+    "category": "Accessibility Testing",
+    "feature": "contrast readability",
+    "priority": "Medium",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-117",
+    "title": "Verify screen-reader text behaves correctly for the accessibility testing scenario",
+    "category": "Accessibility Testing",
+    "feature": "screen-reader text",
+    "priority": "High",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-118",
+    "title": "Verify error announcement behaves correctly for the accessibility testing scenario",
+    "category": "Accessibility Testing",
+    "feature": "error announcement",
+    "priority": "Low",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-119",
+    "title": "Verify tab order behaves correctly for the accessibility testing scenario",
+    "category": "Accessibility Testing",
+    "feature": "tab order",
+    "priority": "Medium",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  },
+  {
+    "id": "TC-120",
+    "title": "Verify accessible alert regions behaves correctly for the accessibility testing scenario",
+    "category": "Accessibility Testing",
+    "feature": "accessible alert regions",
+    "priority": "High",
+    "automation": "Manual",
+    "status": "Planned",
+    "source": "Repository feature mapping"
+  }
+]

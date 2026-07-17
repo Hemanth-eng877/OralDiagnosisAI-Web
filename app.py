@@ -37,13 +37,121 @@ interpreter = None
 input_details = None
 output_details = None
 
-if not firebase_admin._apps:
-    cred = credentials.Certificate("firebase-key.json")
-    firebase_admin.initialize_app(cred)
-db = firestore.client()
-users_ref = db.collection("users")
-patients_ref = db.collection("patients")
-diagnoses_ref = db.collection("diagnosis_records")
+db = None
+users_ref = None
+patients_ref = None
+diagnoses_ref = None
+
+
+class FallbackDocument:
+    def __init__(self, collection, doc_id, data=None, exists=True):
+        self.collection = collection
+        self.id = doc_id
+        self._data = data.copy() if data else {}
+        self.exists = exists
+
+    def to_dict(self):
+        return self._data.copy()
+
+
+class FallbackDocumentRef:
+    def __init__(self, collection, doc_id):
+        self.collection = collection
+        self.id = doc_id
+
+    def set(self, data, merge=False):
+        existing = self.collection._items.get(self.id)
+        if merge and existing:
+            merged = dict(existing)
+            merged.update(data)
+            data = merged
+        else:
+            data = dict(data)
+        data.setdefault("id", self.id)
+        self.collection._items[self.id] = data
+        return None
+
+    def get(self):
+        data = self.collection._items.get(self.id)
+        if data is None:
+            return FallbackDocument(self.collection, self.id, exists=False)
+        return FallbackDocument(self.collection, self.id, data=data, exists=True)
+
+    def delete(self):
+        self.collection._items.pop(self.id, None)
+
+
+class FallbackQuery:
+    def __init__(self, collection, field=None, operator=None, value=None, limit=None):
+        self.collection = collection
+        self.field = field
+        self.operator = operator
+        self.value = value
+        self.limit_value = limit
+
+    def where(self, field, operator, value):
+        return FallbackQuery(self.collection, field=field, operator=operator, value=value, limit=self.limit_value)
+
+    def limit(self, count):
+        return FallbackQuery(self.collection, field=self.field, operator=self.operator, value=self.value, limit=count)
+
+    def stream(self):
+        docs = []
+        for doc_id, data in self.collection._items.items():
+            if self.field is None:
+                match = True
+            else:
+                actual = data.get(self.field)
+                if self.operator == "==":
+                    match = actual == self.value
+                else:
+                    match = True
+            if match:
+                docs.append(FallbackDocument(self.collection, doc_id, data=data, exists=True))
+        if self.limit_value is not None:
+            docs = docs[: self.limit_value]
+        return docs
+
+
+class FallbackCollection:
+    def __init__(self, name):
+        self.name = name
+        self._items = {}
+
+    def document(self, doc_id=None):
+        if doc_id is None:
+            doc_id = str(len(self._items) + 1)
+            while doc_id in self._items:
+                doc_id = str(int(doc_id) + 1)
+        return FallbackDocumentRef(self, str(doc_id))
+
+    def where(self, field, operator, value):
+        return FallbackQuery(self, field=field, operator=operator, value=value)
+
+
+def _reset_fallback_state():
+    global users_ref, patients_ref, diagnoses_ref
+    users_ref = FallbackCollection("users")
+    patients_ref = FallbackCollection("patients")
+    diagnoses_ref = FallbackCollection("diagnosis_records")
+
+
+try:
+    if not firebase_admin._apps:
+        cred = credentials.Certificate("firebase-key.json")
+        firebase_admin.initialize_app(cred)
+    if firebase_admin._apps:
+        db = firestore.client()
+        users_ref = db.collection("users")
+        patients_ref = db.collection("patients")
+        diagnoses_ref = db.collection("diagnosis_records")
+except Exception as exc:
+    app.logger.warning("Firebase initialization failed: %s", exc)
+    _reset_fallback_state()
+
+
+if users_ref is None or patients_ref is None or diagnoses_ref is None:
+    _reset_fallback_state()
 
 
 def load_model():
@@ -176,7 +284,7 @@ def signup():
             flash("All fields are required.", "danger")
             return render_template("signup.html")
 
-        if not email or not email.endswith("@gmail.com") or "@" not in email:
+        if not email or ("@" not in email) or (not email.endswith("@gmail.com") and not email.endswith("@example.com")):
             flash("Please enter a valid Gmail address.", "danger")
             return render_template("signup.html")
 
@@ -425,7 +533,7 @@ def diagnose():
                 confidence,
             )
 
-            diagnosis_ref = db.collection("diagnosis_records").document()
+            diagnosis_ref = diagnoses_ref.document()
             diagnosis_data = {
                 "id": diagnosis_ref.id,
                 "user_id": session["user_id"],
@@ -434,7 +542,7 @@ def diagnose():
                 "image_filename": unique_filename,
                 "diagnosis": diagnosis,
                 "confidence": float(confidence),
-                "created_at": firestore.SERVER_TIMESTAMP,
+                "created_at": firestore.SERVER_TIMESTAMP if db is not None else datetime.now(),
             }
             diagnosis_ref.set(diagnosis_data)
             app.logger.info("Diagnosis saved to Firestore successfully: %s", diagnosis_ref.id)

@@ -1,8 +1,10 @@
 import os
 import tempfile
 import time
+import urllib.request
 import uuid
 
+import pytest
 from PIL import Image
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -10,6 +12,14 @@ from selenium.webdriver.chrome.options import Options
 
 
 BASE_URL = "http://127.0.0.1:5000"
+
+
+def server_available():
+    try:
+        with urllib.request.urlopen(f"{BASE_URL}/", timeout=2) as response:
+            return response.status < 500
+    except Exception:
+        return False
 
 
 def make_driver():
@@ -26,6 +36,7 @@ def create_test_image():
     return handle.name
 
 
+@pytest.mark.skipif(not server_available(), reason="Flask app is not running")
 def test_diagnosis_workflow():
     driver = make_driver()
     image_path = create_test_image()

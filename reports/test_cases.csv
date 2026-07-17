@@ -1,0 +1,121 @@
+id,title,category,feature,priority,automation,status,source
+TC-001,Verify signup behaves correctly for the functional testing scenario,Functional Testing,signup,Medium,Automated,Planned,Repository feature mapping
+TC-002,Verify login behaves correctly for the functional testing scenario,Functional Testing,login,High,Automated,Planned,Repository feature mapping
+TC-003,Verify logout behaves correctly for the functional testing scenario,Functional Testing,logout,Low,Automated,Planned,Repository feature mapping
+TC-004,Verify dashboard behaves correctly for the functional testing scenario,Functional Testing,dashboard,Medium,Automated,Planned,Repository feature mapping
+TC-005,Verify patient registration behaves correctly for the functional testing scenario,Functional Testing,patient registration,High,Automated,Planned,Repository feature mapping
+TC-006,Verify patient edit behaves correctly for the functional testing scenario,Functional Testing,patient edit,Low,Automated,Planned,Repository feature mapping
+TC-007,Verify patient delete behaves correctly for the functional testing scenario,Functional Testing,patient delete,Medium,Automated,Planned,Repository feature mapping
+TC-008,Verify diagnose submission behaves correctly for the functional testing scenario,Functional Testing,diagnose submission,High,Automated,Planned,Repository feature mapping
+TC-009,Verify report search behaves correctly for the functional testing scenario,Functional Testing,report search,Low,Automated,Planned,Repository feature mapping
+TC-010,Verify image upload behaves correctly for the functional testing scenario,Functional Testing,image upload,Medium,Automated,Planned,Repository feature mapping
+TC-011,Verify signup form behaves correctly for the ui testing scenario,UI Testing,signup form,Low,Manual,Planned,Repository feature mapping
+TC-012,Verify login form behaves correctly for the ui testing scenario,UI Testing,login form,Medium,Manual,Planned,Repository feature mapping
+TC-013,Verify patient form behaves correctly for the ui testing scenario,UI Testing,patient form,High,Manual,Planned,Repository feature mapping
+TC-014,Verify patient table behaves correctly for the ui testing scenario,UI Testing,patient table,Low,Manual,Planned,Repository feature mapping
+TC-015,Verify dashboard cards behaves correctly for the ui testing scenario,UI Testing,dashboard cards,Medium,Manual,Planned,Repository feature mapping
+TC-016,Verify report table behaves correctly for the ui testing scenario,UI Testing,report table,High,Manual,Planned,Repository feature mapping
+TC-017,Verify search box behaves correctly for the ui testing scenario,UI Testing,search box,Low,Manual,Planned,Repository feature mapping
+TC-018,Verify flash notifications behaves correctly for the ui testing scenario,UI Testing,flash notifications,Medium,Manual,Planned,Repository feature mapping
+TC-019,Verify loading indicator behaves correctly for the ui testing scenario,UI Testing,loading indicator,High,Manual,Planned,Repository feature mapping
+TC-020,Verify action buttons behaves correctly for the ui testing scenario,UI Testing,action buttons,Low,Manual,Planned,Repository feature mapping
+TC-021,Verify success feedback behaves correctly for the ux testing scenario,UX Testing,success feedback,High,Manual,Planned,Repository feature mapping
+TC-022,Verify error clarity behaves correctly for the ux testing scenario,UX Testing,error clarity,Low,Manual,Planned,Repository feature mapping
+TC-023,Verify empty state guidance behaves correctly for the ux testing scenario,UX Testing,empty state guidance,Medium,Manual,Planned,Repository feature mapping
+TC-024,Verify navigation flow behaves correctly for the ux testing scenario,UX Testing,navigation flow,High,Manual,Planned,Repository feature mapping
+TC-025,Verify confirmation messaging behaves correctly for the ux testing scenario,UX Testing,confirmation messaging,Low,Manual,Planned,Repository feature mapping
+TC-026,Verify dashboard summaries behaves correctly for the ux testing scenario,UX Testing,dashboard summaries,Medium,Manual,Planned,Repository feature mapping
+TC-027,Verify search affordance behaves correctly for the ux testing scenario,UX Testing,search affordance,High,Manual,Planned,Repository feature mapping
+TC-028,Verify progress cues behaves correctly for the ux testing scenario,UX Testing,progress cues,Low,Manual,Planned,Repository feature mapping
+TC-029,Verify workflow continuity behaves correctly for the ux testing scenario,UX Testing,workflow continuity,Medium,Manual,Planned,Repository feature mapping
+TC-030,Verify recovery after failure behaves correctly for the ux testing scenario,UX Testing,recovery after failure,High,Manual,Planned,Repository feature mapping
+TC-031,Verify allowed_file behaves correctly for the unit testing scenario,Unit Testing,allowed_file,Medium,Automated,Planned,Repository feature mapping
+TC-032,Verify preprocess_image behaves correctly for the unit testing scenario,Unit Testing,preprocess_image,High,Automated,Planned,Repository feature mapping
+TC-033,Verify patient form validation behaves correctly for the unit testing scenario,Unit Testing,patient form validation,Low,Automated,Planned,Repository feature mapping
+TC-034,Verify PatientForm submission payload behaves correctly for the unit testing scenario,Unit Testing,PatientForm submission payload,Medium,Automated,Planned,Repository feature mapping
+TC-035,Verify PatientList sorting behaves correctly for the unit testing scenario,Unit Testing,PatientList sorting,High,Automated,Planned,Repository feature mapping
+TC-036,Verify PatientList search filter behaves correctly for the unit testing scenario,Unit Testing,PatientList search filter,Low,Automated,Planned,Repository feature mapping
+TC-037,Verify Notification rendering behaves correctly for the unit testing scenario,Unit Testing,Notification rendering,Medium,Automated,Planned,Repository feature mapping
+TC-038,Verify Loading component behaves correctly for the unit testing scenario,Unit Testing,Loading component,High,Automated,Planned,Repository feature mapping
+TC-039,Verify Firestore service helper behaves correctly for the unit testing scenario,Unit Testing,Firestore service helper,Low,Automated,Planned,Repository feature mapping
+TC-040,Verify route guard helper behaves correctly for the unit testing scenario,Unit Testing,route guard helper,Medium,Automated,Planned,Repository feature mapping
+TC-041,Verify signup to login behaves correctly for the integration testing scenario,Integration Testing,signup to login,Low,Automated,Planned,Repository feature mapping
+TC-042,Verify signup to patient add behaves correctly for the integration testing scenario,Integration Testing,signup to patient add,Medium,Automated,Planned,Repository feature mapping
+TC-043,Verify patient add to diagnose behaves correctly for the integration testing scenario,Integration Testing,patient add to diagnose,High,Automated,Planned,Repository feature mapping
+TC-044,Verify diagnose to reports behaves correctly for the integration testing scenario,Integration Testing,diagnose to reports,Low,Automated,Planned,Repository feature mapping
+TC-045,Verify login to dashboard behaves correctly for the integration testing scenario,Integration Testing,login to dashboard,Medium,Automated,Planned,Repository feature mapping
+TC-046,Verify frontend form to service behaves correctly for the integration testing scenario,Integration Testing,frontend form to service,High,Automated,Planned,Repository feature mapping
+TC-047,Verify service to Firebase behaves correctly for the integration testing scenario,Integration Testing,service to Firebase,Low,Automated,Planned,Repository feature mapping
+TC-048,Verify dashboard to report list behaves correctly for the integration testing scenario,Integration Testing,dashboard to report list,Medium,Automated,Planned,Repository feature mapping
+TC-049,Verify patient CRUD workflow behaves correctly for the integration testing scenario,Integration Testing,patient CRUD workflow,High,Automated,Planned,Repository feature mapping
+TC-050,Verify session persistence behaves correctly for the integration testing scenario,Integration Testing,session persistence,Low,Automated,Planned,Repository feature mapping
+TC-051,Verify required field checks behaves correctly for the validation testing scenario,Validation Testing,required field checks,High,Automated,Planned,Repository feature mapping
+TC-052,Verify email format behaves correctly for the validation testing scenario,Validation Testing,email format,Low,Automated,Planned,Repository feature mapping
+TC-053,Verify password length behaves correctly for the validation testing scenario,Validation Testing,password length,Medium,Automated,Planned,Repository feature mapping
+TC-054,Verify patient age numeric behaves correctly for the validation testing scenario,Validation Testing,patient age numeric,High,Automated,Planned,Repository feature mapping
+TC-055,Verify image file extension behaves correctly for the validation testing scenario,Validation Testing,image file extension,Low,Automated,Planned,Repository feature mapping
+TC-056,Verify image required on diagnose behaves correctly for the validation testing scenario,Validation Testing,image required on diagnose,Medium,Automated,Planned,Repository feature mapping
+TC-057,Verify patient selection validation behaves correctly for the validation testing scenario,Validation Testing,patient selection validation,High,Automated,Planned,Repository feature mapping
+TC-058,Verify duplicate email prevention behaves correctly for the validation testing scenario,Validation Testing,duplicate email prevention,Low,Automated,Planned,Repository feature mapping
+TC-059,Verify missing patient name behaves correctly for the validation testing scenario,Validation Testing,missing patient name,Medium,Automated,Planned,Repository feature mapping
+TC-060,Verify missing image filename behaves correctly for the validation testing scenario,Validation Testing,missing image filename,High,Automated,Planned,Repository feature mapping
+TC-061,Verify home redirect behaves correctly for the smoke testing scenario,Smoke Testing,home redirect,Medium,Automated,Planned,Repository feature mapping
+TC-062,Verify login page load behaves correctly for the smoke testing scenario,Smoke Testing,login page load,High,Automated,Planned,Repository feature mapping
+TC-063,Verify dashboard load behaves correctly for the smoke testing scenario,Smoke Testing,dashboard load,Low,Automated,Planned,Repository feature mapping
+TC-064,Verify patient page load behaves correctly for the smoke testing scenario,Smoke Testing,patient page load,Medium,Automated,Planned,Repository feature mapping
+TC-065,Verify diagnose page load behaves correctly for the smoke testing scenario,Smoke Testing,diagnose page load,High,Automated,Planned,Repository feature mapping
+TC-066,Verify reports page load behaves correctly for the smoke testing scenario,Smoke Testing,reports page load,Low,Automated,Planned,Repository feature mapping
+TC-067,Verify signup page load behaves correctly for the smoke testing scenario,Smoke Testing,signup page load,Medium,Automated,Planned,Repository feature mapping
+TC-068,Verify logout flow behaves correctly for the smoke testing scenario,Smoke Testing,logout flow,High,Automated,Planned,Repository feature mapping
+TC-069,Verify static assets load behaves correctly for the smoke testing scenario,Smoke Testing,static assets load,Low,Automated,Planned,Repository feature mapping
+TC-070,Verify app bootstrap behaves correctly for the smoke testing scenario,Smoke Testing,app bootstrap,Medium,Automated,Planned,Repository feature mapping
+TC-071,Verify auth changes behaves correctly for the regression testing scenario,Regression Testing,auth changes,Low,Automated,Planned,Repository feature mapping
+TC-072,Verify patient CRUD stability behaves correctly for the regression testing scenario,Regression Testing,patient CRUD stability,Medium,Automated,Planned,Repository feature mapping
+TC-073,Verify diagnosis storage stability behaves correctly for the regression testing scenario,Regression Testing,diagnosis storage stability,High,Automated,Planned,Repository feature mapping
+TC-074,Verify report search stability behaves correctly for the regression testing scenario,Regression Testing,report search stability,Low,Automated,Planned,Repository feature mapping
+TC-075,Verify template rendering stability behaves correctly for the regression testing scenario,Regression Testing,template rendering stability,Medium,Automated,Planned,Repository feature mapping
+TC-076,Verify navigation stability behaves correctly for the regression testing scenario,Regression Testing,navigation stability,High,Automated,Planned,Repository feature mapping
+TC-077,Verify session cleanup stability behaves correctly for the regression testing scenario,Regression Testing,session cleanup stability,Low,Automated,Planned,Repository feature mapping
+TC-078,Verify model fallback stability behaves correctly for the regression testing scenario,Regression Testing,model fallback stability,Medium,Automated,Planned,Repository feature mapping
+TC-079,Verify Firebase init stability behaves correctly for the regression testing scenario,Regression Testing,Firebase init stability,High,Automated,Planned,Repository feature mapping
+TC-080,Verify form submission stability behaves correctly for the regression testing scenario,Regression Testing,form submission stability,Low,Automated,Planned,Repository feature mapping
+TC-081,Verify protected route access behaves correctly for the security testing scenario,Security Testing,protected route access,High,Manual,Planned,Repository feature mapping
+TC-082,Verify session fixation behaves correctly for the security testing scenario,Security Testing,session fixation,Low,Manual,Planned,Repository feature mapping
+TC-083,Verify password hashing behaves correctly for the security testing scenario,Security Testing,password hashing,Medium,Manual,Planned,Repository feature mapping
+TC-084,Verify prevent user ID spoofing behaves correctly for the security testing scenario,Security Testing,prevent user ID spoofing,High,Manual,Planned,Repository feature mapping
+TC-085,Verify prevent cross-user data access behaves correctly for the security testing scenario,Security Testing,prevent cross-user data access,Low,Manual,Planned,Repository feature mapping
+TC-086,Verify secure file handling behaves correctly for the security testing scenario,Security Testing,secure file handling,Medium,Manual,Planned,Repository feature mapping
+TC-087,Verify file upload restrictions behaves correctly for the security testing scenario,Security Testing,file upload restrictions,High,Manual,Planned,Repository feature mapping
+TC-088,Verify flash message exposure behaves correctly for the security testing scenario,Security Testing,flash message exposure,Low,Manual,Planned,Repository feature mapping
+TC-089,Verify missing login redirect behaves correctly for the security testing scenario,Security Testing,missing login redirect,Medium,Manual,Planned,Repository feature mapping
+TC-090,Verify CSRF-safe form posting behaves correctly for the security testing scenario,Security Testing,CSRF-safe form posting,High,Manual,Planned,Repository feature mapping
+TC-091,Verify dashboard load behaves correctly for the performance testing scenario,Performance Testing,dashboard load,Medium,Manual,Planned,Repository feature mapping
+TC-092,Verify patient list render behaves correctly for the performance testing scenario,Performance Testing,patient list render,High,Manual,Planned,Repository feature mapping
+TC-093,Verify report search response behaves correctly for the performance testing scenario,Performance Testing,report search response,Low,Manual,Planned,Repository feature mapping
+TC-094,Verify image preprocessing behaves correctly for the performance testing scenario,Performance Testing,image preprocessing,Medium,Manual,Planned,Repository feature mapping
+TC-095,Verify large patient dataset behaves correctly for the performance testing scenario,Performance Testing,large patient dataset,High,Manual,Planned,Repository feature mapping
+TC-096,Verify repeated login attempts behaves correctly for the performance testing scenario,Performance Testing,repeated login attempts,Low,Manual,Planned,Repository feature mapping
+TC-097,Verify concurrent uploads behaves correctly for the performance testing scenario,Performance Testing,concurrent uploads,Medium,Manual,Planned,Repository feature mapping
+TC-098,Verify report export handling behaves correctly for the performance testing scenario,Performance Testing,report export handling,High,Manual,Planned,Repository feature mapping
+TC-099,Verify route rendering under load behaves correctly for the performance testing scenario,Performance Testing,route rendering under load,Low,Manual,Planned,Repository feature mapping
+TC-100,Verify image save performance behaves correctly for the performance testing scenario,Performance Testing,image save performance,Medium,Manual,Planned,Repository feature mapping
+TC-101,Verify Chromium browser behaves correctly for the compatibility testing scenario,Compatibility Testing,Chromium browser,Low,Manual,Planned,Repository feature mapping
+TC-102,Verify Firefox browser behaves correctly for the compatibility testing scenario,Compatibility Testing,Firefox browser,Medium,Manual,Planned,Repository feature mapping
+TC-103,Verify Edge browser behaves correctly for the compatibility testing scenario,Compatibility Testing,Edge browser,High,Manual,Planned,Repository feature mapping
+TC-104,Verify mobile viewport behaves correctly for the compatibility testing scenario,Compatibility Testing,mobile viewport,Low,Manual,Planned,Repository feature mapping
+TC-105,Verify tablet viewport behaves correctly for the compatibility testing scenario,Compatibility Testing,tablet viewport,Medium,Manual,Planned,Repository feature mapping
+TC-106,Verify Vite build behaves correctly for the compatibility testing scenario,Compatibility Testing,Vite build,High,Manual,Planned,Repository feature mapping
+TC-107,Verify Python Flask startup behaves correctly for the compatibility testing scenario,Compatibility Testing,Python Flask startup,Low,Manual,Planned,Repository feature mapping
+TC-108,Verify Firebase config handling behaves correctly for the compatibility testing scenario,Compatibility Testing,Firebase config handling,Medium,Manual,Planned,Repository feature mapping
+TC-109,Verify static asset delivery behaves correctly for the compatibility testing scenario,Compatibility Testing,static asset delivery,High,Manual,Planned,Repository feature mapping
+TC-110,Verify different image formats behaves correctly for the compatibility testing scenario,Compatibility Testing,different image formats,Low,Manual,Planned,Repository feature mapping
+TC-111,Verify form labels behaves correctly for the accessibility testing scenario,Accessibility Testing,form labels,High,Manual,Planned,Repository feature mapping
+TC-112,Verify button semantics behaves correctly for the accessibility testing scenario,Accessibility Testing,button semantics,Low,Manual,Planned,Repository feature mapping
+TC-113,Verify keyboard navigation behaves correctly for the accessibility testing scenario,Accessibility Testing,keyboard navigation,Medium,Manual,Planned,Repository feature mapping
+TC-114,Verify focus management behaves correctly for the accessibility testing scenario,Accessibility Testing,focus management,High,Manual,Planned,Repository feature mapping
+TC-115,Verify alt text behaves correctly for the accessibility testing scenario,Accessibility Testing,alt text,Low,Manual,Planned,Repository feature mapping
+TC-116,Verify contrast readability behaves correctly for the accessibility testing scenario,Accessibility Testing,contrast readability,Medium,Manual,Planned,Repository feature mapping
+TC-117,Verify screen-reader text behaves correctly for the accessibility testing scenario,Accessibility Testing,screen-reader text,High,Manual,Planned,Repository feature mapping
+TC-118,Verify error announcement behaves correctly for the accessibility testing scenario,Accessibility Testing,error announcement,Low,Manual,Planned,Repository feature mapping
+TC-119,Verify tab order behaves correctly for the accessibility testing scenario,Accessibility Testing,tab order,Medium,Manual,Planned,Repository feature mapping
+TC-120,Verify accessible alert regions behaves correctly for the accessibility testing scenario,Accessibility Testing,accessible alert regions,High,Manual,Planned,Repository feature mapping
