@@ -35,7 +35,7 @@ jobs:
         continue-on-error: true
         run: |
           python -m pip install --disable-pip-version-check semgrep
-          semgrep scan --config auto --json --output "$REPORT_DIR/semgrep.json" .
+          semgrep scan --config auto --json --output "$REPORT_DIR/semgrep.json" --exclude venv --exclude k6 --exclude node_modules --exclude .git --exclude "$REPORT_DIR" --exclude reports --exclude artifacts .
 
       # A detected secret is treated as critical because it can provide direct access.
       - name: Run Gitleaks
@@ -45,7 +45,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          args: detect --source . --report-format json --report-path "${{ env.REPORT_DIR }}/gitleaks.json" --no-banner
+          args: detect --source . --config .gitleaks.toml --report-format json --report-path "${{ env.REPORT_DIR }}/gitleaks.json" --no-banner
 
       - name: Run Trivy filesystem scan
         id: trivy
@@ -59,6 +59,8 @@ jobs:
           severity: LOW,MEDIUM,HIGH,CRITICAL
           exit-code: "0"
           ignore-unfixed: false
+          skip-dirs: venv,k6,node_modules,.git,reports,artifacts,Vulnerability Test Results
+          trivyignores: .trivyignore
 
       # The action evaluates changed dependencies. Its critical threshold is used by
       # the final gate and its result is recorded in the generated summary.

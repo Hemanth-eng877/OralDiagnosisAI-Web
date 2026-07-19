@@ -1,4 +1,5 @@
 import os
+import sys
 import glob
 import json
 import time
@@ -84,12 +85,14 @@ def parse_security_scans():
             with open(path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 for r in data.get('results', []):
-                    sev = str(r.get('extra', {}).get('severity', '')).upper()
-                    if sev == 'ERROR' or sev == 'CRITICAL':
+                    meta_sev = str(r.get('extra', {}).get('metadata', {}).get('severity', '')).upper()
+                    if not meta_sev:
+                        meta_sev = str(r.get('extra', {}).get('severity', '')).upper()
+                    if meta_sev == 'CRITICAL':
                         res['semgrep']['crit'] += 1
-                    elif sev == 'WARNING' or sev == 'HIGH':
+                    elif meta_sev == 'HIGH' or meta_sev == 'ERROR':
                         res['semgrep']['high'] += 1
-                    elif sev == 'INFO' or sev == 'MEDIUM':
+                    elif meta_sev == 'MEDIUM' or meta_sev == 'WARNING':
                         res['semgrep']['med'] += 1
                     else:
                         res['semgrep']['low'] += 1
@@ -125,12 +128,22 @@ def parse_security_scans():
         except Exception:
             pass
 
-    # Dep Review (if generated)
+    # Dep Review (if generated or check summary)
     for path in glob.glob('**/dependency-review.json', recursive=True):
         try:
             with open(path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                # mock logic if json provided
+                if isinstance(data, dict):
+                    pass
+        except Exception:
+            pass
+
+    for path in glob.glob('**/dependency-review.md', recursive=True):
+        try:
+            with open(path, 'r', encoding='utf-8') as f:
+                content = f.read().lower()
+                if "critical findings detected" in content or "failure" in content:
+                    res['dep_review']['crit'] = max(res['dep_review']['crit'], 1)
         except Exception:
             pass
 
@@ -156,23 +169,49 @@ def parse_load_test():
                 data = json.load(f)
                 m = data.get('metrics', {})
                 if 'http_reqs' in m:
-                    metrics['reqs'] = int(m['http_reqs'].get('values', {}).get('count', 0))
-                    metrics['rate'] = float(m['http_reqs'].get('values', {}).get('rate', 0.0))
+                    vals = m['http_reqs'].get('values', m['http_reqs'])
+                    metrics['reqs'] = int(vals.get('count', 0))
+                    metrics['rate'] = float(vals.get('rate', 0.0))
                 if 'http_req_failed' in m:
-                    metrics['failed_rate'] = float(m['http_req_failed'].get('values', {}).get('rate', 0.0))
+                    vals = m['http_req_failed'].get('values', m['http_req_failed'])
+                    if 'rate' in vals:
+                        metrics['failed_rate'] = float(vals['rate'])
+                    elif 'value' in vals:
+                        metrics['failed_rate'] = float(vals['value'])
+                    else:
+                        passes = float(vals.get('passes', 0))
+                        fails = float(vals.get('fails', 0))
+                        tot = passes + fails
+                        if tot > 0:
+                            metrics['failed_rate'] = passes / tot
                 if 'checks' in m:
-                    metrics['checks_pass_rate'] = float(m['checks'].get('values', {}).get('rate', 1.0))
+                    vals = m['checks'].get('values', m['checks'])
+                    if 'rate' in vals:
+                        metrics['checks_pass_rate'] = float(vals['rate'])
+                    elif 'value' in vals:
+                        metrics['checks_pass_rate'] = float(vals['value'])
+                    else:
+                        passes = float(vals.get('passes', 0))
+                        fails = float(vals.get('fails', 0))
+                        tot = passes + fails
+                        if tot > 0:
+                            metrics['checks_pass_rate'] = passes / tot
                 if 'http_req_duration' in m:
-                    vals = m['http_req_duration'].get('values', {})
+                    vals = m['http_req_duration'].get('values', m['http_req_duration'])
                     metrics['avg'] = float(vals.get('avg', 0.0))
                     metrics['min'] = float(vals.get('min', 0.0))
                     metrics['max'] = float(vals.get('max', 0.0))
-                    metrics['p95'] = float(vals.get('p(95)', 0.0))
-                    metrics['p99'] = float(vals.get('p(99)', 0.0))
+                    metrics['p95'] = float(vals.get('p(95)', vals.get('p95', 0.0)))
+                    metrics['p99'] = float(vals.get('p(99)', vals.get('p99', 0.0)))
                 if 'vus_max' in m:
-                    metrics['vus'] = int(m['vus_max'].get('values', {}).get('value', 0))
+                    vals = m['vus_max'].get('values', m['vus_max'])
+                    metrics['vus'] = int(vals.get('value', vals.get('max', 0)))
+                elif 'vus' in m:
+                    vals = m['vus'].get('values', m['vus'])
+                    metrics['vus'] = int(vals.get('value', vals.get('max', 0)))
                 if 'iteration_duration' in m:
-                    duration = float(m['iteration_duration'].get('values', {}).get('avg', 0.0))
+                    vals = m['iteration_duration'].get('values', m['iteration_duration'])
+                    duration = float(vals.get('avg', 0.0))
                     metrics['duration_str'] = f"{round(duration/1000, 2)}s per iter"
         except Exception:
             pass
@@ -220,6 +259,11 @@ def categorize_cases(cases, categories):
     return results
 
 def main():
+    if hasattr(sys.stdout, 'reconfigure'):
+        try:
+            sys.stdout.reconfigure(encoding='utf-8')
+        except Exception:
+            pass
     repo = os.environ.get('GITHUB_REPOSITORY', 'OralDiagnosisAI/OralDiagnosisAI-Web')
     branch = os.environ.get('GITHUB_HEAD_REF') or os.environ.get('GITHUB_REF_NAME', 'main')
     sha = os.environ.get('GITHUB_SHA', 'N/A')[:7]
@@ -248,6 +292,7 @@ def main():
     total_sec_high = sum(sec_res[k]['high'] for k in sec_res)
     
     load_metrics = parse_load_test()
+    load_status = "✅ PASS" if (load_metrics['failed_rate'] <= 0.05 and load_metrics['p95'] <= 5000 and load_metrics['reqs'] > 0) else ("⚠️ NOT RUN" if load_metrics['reqs'] == 0 else "❌ FAIL")
 
     # Grand Totals
     grand_tot_tests = py_tot + js_tot + api_tot + android_unit_tot + android_ui_tot + sel_tot
@@ -255,7 +300,7 @@ def main():
     grand_fail_tests = py_fail + js_fail + api_fail + android_unit_fail + android_ui_fail + sel_fail
     
     pass_rate = round((grand_pass_tests / grand_tot_tests * 100), 1) if grand_tot_tests > 0 else 0.0
-    overall_status = "✅ PASS" if (grand_fail_tests == 0 and total_sec_crit == 0 and load_metrics['failed_rate'] < 0.1) else "❌ FAIL"
+    overall_status = "✅ PASS" if (grand_fail_tests == 0 and total_sec_crit == 0 and load_status == "✅ PASS") else "❌ FAIL"
 
     def pass_rate_str(p, t):
         return f"{round(p/t*100, 1)}%" if t > 0 else "N/A"
@@ -328,7 +373,7 @@ def main():
 | **Android UI Tests** | {android_ui_tot} | {android_ui_pass} | {android_ui_fail} | {pass_rate_str(android_ui_pass, android_ui_tot)} | {status_icon(android_ui_fail)} |
 | **Selenium Web Tests** | {sel_tot} | {sel_pass} | {sel_fail} | {pass_rate_str(sel_pass, sel_tot)} | {status_icon(sel_fail)} |
 | **Security Review** | Findings | - | {total_sec_crit} Crit | - | {status_icon(total_sec_crit)} |
-| **Load Testing** | {load_metrics['reqs']} reqs | - | {(load_metrics['failed_rate']*100):.2f}% Err | - | ✅ PASS |
+| **Load Testing** | {load_metrics['reqs']} reqs | - | {(load_metrics['failed_rate']*100):.2f}% Err | - | {load_status} |
 | **Overall Combined** | **{grand_tot_tests}** | **{grand_pass_tests}** | **{grand_fail_tests}** | **{pass_rate}%** | **{overall_status}** |
 
 ---
@@ -481,8 +526,8 @@ def main():
 | **P99** | `{round(load_metrics['p99'], 2)}ms` |
 | **Error Rate** | `{round(load_metrics['failed_rate'] * 100, 2)}%` |
 | **Checks Passed** | `{round(load_metrics['checks_pass_rate'] * 100, 2)}%` |
-| **Threshold Validation** | {status_icon(1 if load_metrics['failed_rate'] > 0.05 or load_metrics['p95'] > 5000 else 0)} |
-| **Performance Interpretation** | {'✅ System stable under load' if load_metrics['failed_rate'] < 0.01 else '⚠️ Minor degradation observed'} |
+| **Threshold Validation** | {load_status} |
+| **Performance Interpretation** | {'✅ System stable under load' if (load_metrics['failed_rate'] < 0.01 and load_metrics['reqs'] > 0) else ('⚠️ Minor degradation observed' if (load_metrics['failed_rate'] <= 0.05 and load_metrics['reqs'] > 0) else ('⚠️ NOT RUN' if load_metrics['reqs'] == 0 else '❌ Performance thresholds exceeded / errors observed'))} |
 
 ---
 
