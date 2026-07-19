@@ -120,25 +120,28 @@ jobs:
           dependency_status = "critical findings detected" if dependency_critical else "completed without critical findings"
           dependency_content = os.environ.get("DEPENDENCY_REVIEW_CONTENT", "").strip()
           (reports / "dependency-review.md").write_text(
-              dependency_content or "# Dependency Review\\n\\nNo dependency-review details were returned for this comparison.\\n",
+              dependency_content or "# Dependency Review\n\nNo dependency-review details were returned for this comparison.\n",
               encoding="utf-8",
           )
-          report = reports / "security-review-summary.md"
-          report.write_text(
-              "# GitHub Actions Security Review\\n\\n"
-              "| Scanner | Critical findings | Status |\\n| --- | ---: | --- |\\n"
-              f"| Semgrep | {semgrep_critical} | report: `semgrep.json` |\\n"
-              f"| Gitleaks | {gitleaks_findings} | secrets are treated as critical |\\n"
-              f"| Trivy | {trivy_critical} | report: `trivy.json` |\\n"
-              f"| Dependency Review | {1 if dependency_critical else 0} | {dependency_status} |\\n\\n"
-              "The workflow fails only when one or more critical findings are present.\\n",
-              encoding="utf-8",
-          )
-          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as handle:
-              handle.write(report.read_text(encoding="utf-8"))
+          summary_content = f"""# GitHub Actions Security Review
+
+| Scanner | Critical findings | Status |
+| --- | ---: | --- |
+| Semgrep | {semgrep_critical} | report: `semgrep.json` |
+| Gitleaks | {gitleaks_findings} | secrets are treated as critical |
+| Trivy | {trivy_critical} | report: `trivy.json` |
+| Dependency Review | {1 if dependency_critical else 0} | {dependency_status} |
+
+The workflow fails only when one or more critical findings are present.
+"""
+          (reports / "security-review-summary.md").write_text(summary_content, encoding="utf-8")
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as handle:
-              handle.write(f"critical={'true' if critical else 'false'}\\n")
+              handle.write(f"critical={'true' if critical else 'false'}\n")
           PY
+
+          cat <<EOF >> "$GITHUB_STEP_SUMMARY"
+          $(cat "$REPORT_DIR/security-review-summary.md")
+          EOF
 
       - name: Upload security review reports
         if: always()
