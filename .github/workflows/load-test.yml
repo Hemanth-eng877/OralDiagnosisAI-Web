@@ -12,9 +12,10 @@ permissions:
 
 jobs:
   load-test:
-    name: 100 VU application load test
+    name: 100 VU Application Load Test
     runs-on: ubuntu-latest
     timeout-minutes: 15
+
     env:
       BASE_URL: http://127.0.0.1:5000
       REPORT_DIR: reports
@@ -31,57 +32,72 @@ jobs:
           cache: pip
 
       - name: Install application dependencies
-        run: python -m pip install --upgrade pip && python -m pip install -r requirements.txt
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
 
       - name: Install k6
         uses: grafana/setup-k6-action@v1
 
       - name: Prepare report directory
-        run: mkdir -p "$REPORT_DIR" logs
+        run: |
+          mkdir -p reports logs
 
-      - name: Start application
+      - name: Start Flask Application
         run: |
           python app.py > logs/application.log 2>&1 &
           echo $! > logs/application.pid
-          for attempt in {1..30}; do
-            curl --fail --silent "$BASE_URL/login" > /dev/null && exit 0
+
+          echo "Waiting for application..."
+
+          for i in {1..30}; do
+            if curl --silent --fail "$BASE_URL/login" > /dev/null; then
+              echo "Application Started Successfully."
+              exit 0
+            fi
             sleep 2
           done
-          echo "Application did not become ready"
+
+          echo "Application failed to start."
+          cat logs/application.log
           exit 1
 
-      - name: Run k6 load test
+      - name: Run k6 Load Test
         id: k6
         continue-on-error: true
         run: |
           set +e
-          k6 run --summary-export="$REPORT_DIR/load-test-results.json" \
-            --out "csv=$REPORT_DIR/load-test-results.csv" k6/load-test.js
-          exit_code=$?
-          echo "exit_code=$exit_code" >> "$GITHUB_OUTPUT"
-          exit 0
 
-      - name: Generate load-test summary
-        id: summary
+          k6 run \
+            --summary-export=reports/load-test-results.json \
+            --out csv=reports/load-test-results.csv \
+            k6/load-test.js
+
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
+
+      - name: Generate Load Test Summary
         if: always()
-        env:
-          K6_EXIT_CODE: ${{ steps.k6.outputs.exit_code || '1' }}
         run: |
-          python scripts/generate_load_test_summary.py "$REPORT_DIR" | tee -a "$GITHUB_OUTPUT"
-          cat "$REPORT_DIR/load-test-summary.md" >> "$GITHUB_STEP_SUMMARY"
+          python scripts/generate_load_test_summary.py reports
 
-      - name: Upload load test reports
+      - name: Upload Reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: k6-load-test-reports
-          if-no-files-found: error
           path: |
-            reports/load-test-summary.md
-            reports/load-test-results.json
-            reports/load-test-results.csv
-            logs/application.log
+            reports/
+            logs/
 
-      - name: Fail when load test thresholds fail
-        if: always() && steps.summary.outputs.result != 'PASS'
-        run: exit 1
+      - name: Stop Flask Application
+        if: always()
+        run: |
+          if [ -f logs/application.pid ]; then
+            kill $(cat logs/application.pid) || true
+          fi
+
+      - name: Fail workflow if k6 thresholds failed
+        if: always() && steps.k6.outputs.exit_code != '0'
+        run: |
+          echo "❌ k6 Load Test Thresholds Failed"
+          exit 1
