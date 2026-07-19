@@ -1,0 +1,30 @@
+name: Main CI/CD
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Test Suite
+    uses: ./.github/workflows/test.yml
+    secrets: inherit
+
+  security_review:
+    name: Security Review
+    needs: test
+    uses: ./.github/workflows/security-review.yml
+    secrets: inherit
+
+  selenium_e2e:
+    name: Selenium E2E
+    needs: security_review
+    uses: ./.github/workflows/selenium-e2e.yml
+    secrets: inherit
+
+  k6_load_test:
+    name: k6 Load Test
+    needs: selenium_e2e
+    uses: ./.github/workflows/load-test.yml
+    secrets: inherit
