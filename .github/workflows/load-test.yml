@@ -1,0 +1,87 @@
+name: k6 Load Test
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  load-test:
+    name: 100 VU application load test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      BASE_URL: http://127.0.0.1:5000
+      REPORT_DIR: reports
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install application dependencies
+        run: python -m pip install --upgrade pip && python -m pip install -r requirements.txt
+
+      - name: Install k6
+        uses: grafana/setup-k6-action@v1
+
+      - name: Prepare report directory
+        run: mkdir -p "$REPORT_DIR" logs
+
+      - name: Start application
+        run: |
+          python app.py > logs/application.log 2>&1 &
+          echo $! > logs/application.pid
+          for attempt in {1..30}; do
+            curl --fail --silent "$BASE_URL/login" > /dev/null && exit 0
+            sleep 2
+          done
+          echo "Application did not become ready"
+          exit 1
+
+      - name: Run k6 load test
+        id: k6
+        continue-on-error: true
+        run: |
+          set +e
+          k6 run --summary-export="$REPORT_DIR/load-test-results.json" \
+            --out "csv=$REPORT_DIR/load-test-results.csv" k6/load-test.js
+          exit_code=$?
+          echo "exit_code=$exit_code" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Generate load-test summary
+        id: summary
+        if: always()
+        env:
+          K6_EXIT_CODE: ${{ steps.k6.outputs.exit_code || '1' }}
+        run: |
+          python scripts/generate_load_test_summary.py "$REPORT_DIR" | tee -a "$GITHUB_OUTPUT"
+          cat "$REPORT_DIR/load-test-summary.md" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload load test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: k6-load-test-reports
+          if-no-files-found: error
+          path: |
+            reports/load-test-summary.md
+            reports/load-test-results.json
+            reports/load-test-results.csv
+            logs/application.log
+
+      - name: Fail when load test thresholds fail
+        if: always() && steps.summary.outputs.result != 'PASS'
+        run: exit 1
