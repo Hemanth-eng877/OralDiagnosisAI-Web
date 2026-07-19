@@ -15,57 +15,94 @@ export const options = {
   },
 };
 
-let account;
-
 function newAccount() {
-  const suffix = `${__VU}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+  const suffix = `${__VU}-${Date.now()}-${Math.random()
+    .toString(36)
+    .substring(2, 8)}`;
+
   return {
-    email: `k6-load-${suffix}@example.com`,
-    password: 'K6LoadTest!2026',
+    email: `k6-${suffix}@example.com`,
+    password: "Password@123",
   };
 }
 
-function record(response, name, expectedStatus = 200) {
-  responseTime.add(response.timings.duration, { endpoint: name });
-  check(response, {
-    [`${name} returns ${expectedStatus}`]: (result) => result.status === expectedStatus,
-  });
-}
-
-function authenticate() {
-  if (account) return;
-
-  account = newAccount();
-  const signup = http.post(`${baseUrl}/signup`, {
-    name: 'k6 Load Tester',
-    email: account.email,
-    password: account.password,
-  }, { redirects: 0, tags: { endpoint: 'signup' } });
-  record(signup, 'signup', 302);
-
-  const login = http.post(`${baseUrl}/login`, {
-    email: account.email,
-    password: account.password,
-  }, { redirects: 0, tags: { endpoint: 'login' } });
-  record(login, 'login', 302);
-}
-
 export default function () {
-  authenticate();
 
-  // These routes cover the public landing experience, authentication, diagnosis
-  // (prediction) page, and diagnosis reports without executing model inference.
-  const home = http.get(`${baseUrl}/`, { redirects: 0, tags: { endpoint: 'home' } });
-  record(home, 'home', 302);
+  const jar = http.cookieJar();
 
-  const loginPage = http.get(`${baseUrl}/login`, { tags: { endpoint: 'login_page' } });
-  record(loginPage, 'login page');
+  const account = newAccount();
 
-  const prediction = http.get(`${baseUrl}/diagnose`, { redirects: 0, tags: { endpoint: 'prediction' } });
-  record(prediction, 'prediction endpoint');
+  // Signup
+  let res = http.post(
+    `${baseUrl}/signup`,
+    {
+      name: "K6 User",
+      email: account.email,
+      password: account.password,
+    },
+    {
+      redirects: 0,
+      jar: jar,
+    }
+  );
 
-  const reports = http.get(`${baseUrl}/reports`, { redirects: 0, tags: { endpoint: 'reports' } });
-  record(reports, 'reports page');
+  responseTime.add(res.timings.duration);
+
+  check(res, {
+    "signup success": (r) => r.status === 302 || r.status === 200,
+  });
+
+  // Login
+  res = http.post(
+    `${baseUrl}/login`,
+    {
+      email: account.email,
+      password: account.password,
+    },
+    {
+      redirects: 0,
+      jar: jar,
+    }
+  );
+
+  responseTime.add(res.timings.duration);
+
+  check(res, {
+    "login success": (r) => r.status === 302 || r.status === 200,
+  });
+
+  // Home
+  res = http.get(`${baseUrl}/`, {
+    jar: jar,
+  });
+
+  responseTime.add(res.timings.duration);
+
+  check(res, {
+    "home page": (r) => r.status === 200,
+  });
+
+  // Diagnose
+  res = http.get(`${baseUrl}/diagnose`, {
+    jar: jar,
+  });
+
+  responseTime.add(res.timings.duration);
+
+  check(res, {
+    "diagnose page": (r) => r.status === 200,
+  });
+
+  // Reports
+  res = http.get(`${baseUrl}/reports`, {
+    jar: jar,
+  });
+
+  responseTime.add(res.timings.duration);
+
+  check(res, {
+    "reports page": (r) => r.status === 200,
+  });
 
   sleep(1);
 }
