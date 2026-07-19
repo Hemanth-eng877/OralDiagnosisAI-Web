@@ -57,12 +57,12 @@ def test_api_login_invalid_credentials(client):
     assert data["status"] == "error"
 
 def test_api_dashboard_stats(client):
-    response = client.get("/api/dashboard?userId=test_user_1")
+    response = client.get("/api/dashboard?user_id=test_user_1")
     assert response.status_code == 200
     data = json.loads(response.data)
     assert data["status"] == "success"
-    assert "totalPatients" in data
-    assert "totalReports" in data
+    assert "patient_count" in data
+    assert "report_count" in data
 
 def test_api_patient_crud_lifecycle(client):
     # Add patient
@@ -83,7 +83,7 @@ def test_api_patient_crud_lifecycle(client):
     assert add_data["status"] == "success"
 
     # Get patients list
-    get_resp = client.get("/api/patients?userId=test_user_1")
+    get_resp = client.get("/api/patients?user_id=test_user_1")
     assert get_resp.status_code == 200
     get_data = json.loads(get_resp.data)
     assert get_data["status"] == "success"
@@ -104,19 +104,24 @@ def test_api_patient_crud_lifecycle(client):
     assert edit_data["status"] == "success"
 
     # Delete patient
-    delete_resp = client.delete(f"/api/patients/{patient_id}/delete?userId=test_user_1")
+    delete_resp = client.delete(f"/api/patients/{patient_id}/delete?user_id=test_user_1")
     assert delete_resp.status_code == 200
     delete_data = json.loads(delete_resp.data)
     assert delete_data["status"] == "success"
 
 def test_api_reports_list(client):
-    response = client.get("/api/reports?userId=test_user_1")
+    response = client.get("/api/reports?user_id=test_user_1")
     assert response.status_code == 200
     data = json.loads(response.data)
     assert data["status"] == "success"
     assert isinstance(data["reports"], list)
 
 def test_api_diagnose_endpoint(client, monkeypatch, tmp_path):
+    app_module.patients_ref.document("p_123").set({
+        "id": "p_123",
+        "user_id": "test_user_1",
+        "full_name": "Test Patient"
+    })
     monkeypatch.setattr(app_module, "predict_image", lambda path: ("Normal", 98.5))
     image_path = tmp_path / "api_scan.png"
     Image.new("RGB", (224, 224), color=(100, 200, 100)).save(image_path)

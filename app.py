@@ -190,6 +190,13 @@ def allowed_file(filename):
 def _serialize_doc(doc):
     data = doc.to_dict() or {}
     data["id"] = doc.id
+    if "created_at" in data:
+        if hasattr(data["created_at"], "to_datetime"):
+            data["created_at"] = data["created_at"].to_datetime().isoformat()
+        elif hasattr(data["created_at"], "isoformat"):
+            data["created_at"] = data["created_at"].isoformat()
+        else:
+            data["created_at"] = str(data["created_at"])
     return data
 
 
@@ -620,7 +627,7 @@ def api_login():
         return jsonify({"status": "error", "message": "Invalid email or password."}), 401
     
     session["user_id"] = user["id"]
-    return jsonify({"status": "success", "user_id": user["id"], "user_name": user["name"]})
+    return jsonify({"status": "success", "user_id": user["id"], "user_name": user["name"], "email": user["email"]})
 
 @app.route("/api/signup", methods=["POST"])
 def api_signup():
@@ -644,7 +651,7 @@ def api_signup():
         "email": email,
         "password_hash": generate_password_hash(password),
     })
-    return jsonify({"status": "success", "message": "Account created."})
+    return jsonify({"status": "success", "message": "Account created.", "user_id": user_id})
 
 @app.route("/api/dashboard", methods=["GET"])
 def api_dashboard():
