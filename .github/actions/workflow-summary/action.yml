@@ -1,0 +1,139 @@
+name: Workflow Summary
+description: Write a professional OralDiagnosisAI-Web workflow dashboard to GITHUB_STEP_SUMMARY.
+
+inputs:
+  python-tests:
+    description: Python test result (PASS, FAIL, or NOT RUN).
+    required: false
+    default: NOT RUN
+  frontend-tests:
+    description: Frontend test result (PASS, FAIL, or NOT RUN).
+    required: false
+    default: NOT RUN
+  selenium-tests:
+    description: Selenium E2E test result (PASS, FAIL, or NOT RUN).
+    required: false
+    default: NOT RUN
+  semgrep:
+    description: Semgrep result (PASS, FAIL, or NOT RUN).
+    required: false
+    default: NOT RUN
+  gitleaks:
+    description: Gitleaks result (PASS, FAIL, or NOT RUN).
+    required: false
+    default: NOT RUN
+  dependency-review:
+    description: Dependency Review result (PASS, FAIL, or NOT RUN).
+    required: false
+    default: NOT RUN
+  security-status:
+    description: Overall security result (PASS, FAIL, or NOT RUN).
+    required: false
+    default: NOT RUN
+  virtual-users:
+    description: Number of virtual users used for load testing.
+    required: false
+    default: NOT RUN
+  load-duration:
+    description: Load test duration.
+    required: false
+    default: NOT RUN
+  total-requests:
+    description: Total requests made by the load test.
+    required: false
+    default: NOT RUN
+  failed-requests:
+    description: Failed requests made by the load test.
+    required: false
+    default: NOT RUN
+  p95-response-time:
+    description: Load-test P95 response time.
+    required: false
+    default: NOT RUN
+  load-status:
+    description: Overall load-test result (PASS, FAIL, or NOT RUN).
+    required: false
+    default: NOT RUN
+  test-reports:
+    description: Test report artifact status or name.
+    required: false
+    default: NOT GENERATED
+  selenium-report:
+    description: Selenium report artifact status or name.
+    required: false
+    default: NOT GENERATED
+  security-reports:
+    description: Security report artifact status or name.
+    required: false
+    default: NOT GENERATED
+  load-test-reports:
+    description: Load-test report artifact status or name.
+    required: false
+    default: NOT GENERATED
+
+runs:
+  using: composite
+  steps:
+    - name: Publish workflow summary
+      shell: bash
+      env:
+        PYTHON_TESTS: ${{ inputs.python-tests }}
+        FRONTEND_TESTS: ${{ inputs.frontend-tests }}
+        SELENIUM_TESTS: ${{ inputs.selenium-tests }}
+        SEMGREP: ${{ inputs.semgrep }}
+        GITLEAKS: ${{ inputs.gitleaks }}
+        DEPENDENCY_REVIEW: ${{ inputs.dependency-review }}
+        SECURITY_STATUS: ${{ inputs.security-status }}
+        VIRTUAL_USERS: ${{ inputs.virtual-users }}
+        LOAD_DURATION: ${{ inputs.load-duration }}
+        TOTAL_REQUESTS: ${{ inputs.total-requests }}
+        FAILED_REQUESTS: ${{ inputs.failed-requests }}
+        P95_RESPONSE_TIME: ${{ inputs.p95-response-time }}
+        LOAD_STATUS: ${{ inputs.load-status }}
+        TEST_REPORTS: ${{ inputs.test-reports }}
+        SELENIUM_REPORT: ${{ inputs.selenium-report }}
+        SECURITY_REPORTS: ${{ inputs.security-reports }}
+        LOAD_TEST_REPORTS: ${{ inputs.load-test-reports }}
+      run: |
+        branch="${GITHUB_HEAD_REF:-$GITHUB_REF_NAME}"
+        {
+          echo "# OralDiagnosisAI-Web Workflow Summary"
+          echo
+          echo "## Build Information"
+          echo "| Repository | Branch | Commit SHA | Workflow Name | Run Number | Trigger Event |"
+          echo "| --- | --- | --- | --- | ---: | --- |"
+          echo "| $GITHUB_REPOSITORY | $branch | ${GITHUB_SHA::7} | $GITHUB_WORKFLOW | $GITHUB_RUN_NUMBER | $GITHUB_EVENT_NAME |"
+          echo
+          echo "## Test Summary"
+          echo "| Test Suite | Status |"
+          echo "| --- | --- |"
+          echo "| Python Tests | $PYTHON_TESTS |"
+          echo "| Frontend Tests | $FRONTEND_TESTS |"
+          echo "| Selenium E2E Tests | $SELENIUM_TESTS |"
+          echo
+          echo "## Security Summary"
+          echo "| Security Check | Status |"
+          echo "| --- | --- |"
+          echo "| Semgrep | $SEMGREP |"
+          echo "| Gitleaks | $GITLEAKS |"
+          echo "| Dependency Review | $DEPENDENCY_REVIEW |"
+          echo "| Overall Security Status | $SECURITY_STATUS |"
+          echo
+          echo "## Load Testing"
+          echo "| Metric | Value |"
+          echo "| --- | --- |"
+          echo "| Virtual Users | $VIRTUAL_USERS |"
+          echo "| Duration | $LOAD_DURATION |"
+          echo "| Total Requests | $TOTAL_REQUESTS |"
+          echo "| Failed Requests | $FAILED_REQUESTS |"
+          echo "| P95 Response Time | $P95_RESPONSE_TIME |"
+          echo "| Overall Status | $LOAD_STATUS |"
+          echo
+          echo "## Artifacts Generated"
+          echo "| Artifact | Status / Name |"
+          echo "| --- | --- |"
+          echo "| Test Reports | $TEST_REPORTS |"
+          echo "| Selenium Report | $SELENIUM_REPORT |"
+          echo "| Security Reports | $SECURITY_REPORTS |"
+          echo "| Load Test Reports | $LOAD_TEST_REPORTS |"
+        } >> "$GITHUB_STEP_SUMMARY"
