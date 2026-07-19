@@ -37,3 +37,27 @@ jobs:
     needs: selenium_e2e
     uses: ./.github/workflows/load-test.yml
     secrets: inherit
+
+  enterprise_dashboard:
+    name: Enterprise Dashboard
+    needs: [test, security_review, selenium_e2e, k6_load_test]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Download all test artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts/
+          merge-multiple: true
+
+      - name: Generate Enterprise Dashboard
+        run: |
+          python .github/scripts/generate_dashboard.py >> $GITHUB_STEP_SUMMARY
