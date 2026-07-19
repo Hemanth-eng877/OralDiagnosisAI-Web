@@ -9,6 +9,7 @@ from flask import (
     abort,
     Flask,
     flash,
+    jsonify,
     redirect,
     render_template,
     request,
@@ -602,6 +603,197 @@ def reports():
 @login_required
 def uploaded_file(filename):
     return send_from_directory(app.config["UPLOAD_FOLDER"], filename)
+
+
+# ==========================================
+# REST APIs for Android App
+# ==========================================
+
+@app.route("/api/login", methods=["POST"])
+def api_login():
+    data = request.get_json() or {}
+    email = data.get("email", "").strip().lower()
+    password = data.get("password", "")
+    user = _get_user_by_email(email)
+    
+    if user is None or not check_password_hash(user["password_hash"], password):
+        return jsonify({"status": "error", "message": "Invalid email or password."}), 401
+    
+    session["user_id"] = user["id"]
+    return jsonify({"status": "success", "user_id": user["id"], "user_name": user["name"]})
+
+@app.route("/api/signup", methods=["POST"])
+def api_signup():
+    data = request.get_json() or {}
+    name = data.get("name", "").strip()
+    email = data.get("email", "").strip().lower()
+    password = data.get("password", "")
+    
+    if not name or not email or not password:
+        return jsonify({"status": "error", "message": "All fields are required."}), 400
+        
+    existing = _get_user_by_email(email)
+    if existing:
+        return jsonify({"status": "error", "message": "Account exists."}), 400
+        
+    user_ref = users_ref.document()
+    user_id = user_ref.id
+    user_ref.set({
+        "id": user_id,
+        "name": name,
+        "email": email,
+        "password_hash": generate_password_hash(password),
+    })
+    return jsonify({"status": "success", "message": "Account created."})
+
+@app.route("/api/dashboard", methods=["GET"])
+def api_dashboard():
+    user_id = request.args.get("user_id") or session.get("user_id")
+    if not user_id:
+        return jsonify({"status": "error", "message": "Unauthorized"}), 401
+        
+    patients = list(patients_ref.where("user_id", "==", user_id).stream())
+    diagnoses = list(diagnoses_ref.where("user_id", "==", user_id).stream())
+    
+    recent = []
+    for doc in sorted(diagnoses, key=lambda item: _created_at_value(item.to_dict() or {}), reverse=True)[:5]:
+        data = doc.to_dict() or {}
+        recent.append({
+            "id": doc.id,
+            "patient_id": data.get("patient_id"),
+            "diagnosis": data.get("diagnosis"),
+            "confidence": data.get("confidence")
+        })
+        
+    return jsonify({
+        "status": "success",
+        "patient_count": len(patients),
+        "report_count": len(diagnoses),
+        "recent_reports": recent
+    })
+
+@app.route("/api/diagnose", methods=["POST"])
+def api_diagnose():
+    user_id = request.form.get("user_id") or session.get("user_id")
+    patient_id = request.form.get("patient_id")
+    file = request.files.get("image")
+    
+    if not user_id or not patient_id or not file:
+        return jsonify({"status": "error", "message": "Missing required fields."}), 400
+        
+    patient = _get_patient_by_id(patient_id)
+    if patient is None or patient.get("user_id") != user_id:
+        return jsonify({"status": "error", "message": "Invalid patient."}), 400
+        
+    filename = secure_filename(file.filename)
+    unique_filename = f"{uuid.uuid4().hex}_{filename}"
+    saved_path = os.path.join(app.config["UPLOAD_FOLDER"], unique_filename)
+    file.save(saved_path)
+    
+    try:
+        diagnosis, confidence = predict_image(saved_path)
+        diagnosis_ref = diagnoses_ref.document()
+        diagnosis_ref.set({
+            "id": diagnosis_ref.id,
+            "user_id": user_id,
+            "patient_id": patient["id"],
+            "patient_name": patient["full_name"],
+            "image_filename": unique_filename,
+            "diagnosis": diagnosis,
+            "confidence": float(confidence),
+            "created_at": firestore.SERVER_TIMESTAMP if db is not None else datetime.now(),
+        })
+        return jsonify({
+            "status": "success",
+            "diagnosis": diagnosis,
+            "confidence": confidence,
+            "image_filename": unique_filename
+        })
+    except Exception as exc:
+        return jsonify({"status": "error", "message": str(exc)}), 500
+
+@app.route("/api/patients", methods=["GET"])
+def api_patients():
+    user_id = request.args.get("user_id") or session.get("user_id")
+    if not user_id:
+        return jsonify({"status": "error", "message": "Unauthorized"}), 401
+    records = []
+    for doc in patients_ref.where("user_id", "==", user_id).stream():
+        records.append(_serialize_doc(doc))
+    return jsonify({"status": "success", "patients": records})
+
+@app.route("/api/patients/add", methods=["POST"])
+def api_add_patient():
+    data = request.get_json() or {}
+    user_id = data.get("user_id") or session.get("user_id")
+    if not user_id:
+        return jsonify({"status": "error", "message": "Unauthorized"}), 401
+    full_name = data.get("full_name", "").strip()
+    if not full_name:
+        return jsonify({"status": "error", "message": "Patient name is required."}), 400
+    
+    patient_ref = patients_ref.document()
+    patient_id = patient_ref.id
+    patient_ref.set({
+        "id": patient_id,
+        "user_id": user_id,
+        "full_name": full_name,
+        "age": data.get("age"),
+        "gender": data.get("gender", "").strip(),
+        "phone": data.get("phone", "").strip(),
+        "email": data.get("email", "").strip(),
+        "notes": data.get("notes", "").strip(),
+        "created_at": firestore.SERVER_TIMESTAMP if db is not None else datetime.now(),
+    })
+    return jsonify({"status": "success", "message": "Patient added successfully.", "id": patient_id})
+
+@app.route("/api/patients/<patient_id>/edit", methods=["PUT", "POST"])
+def api_edit_patient(patient_id):
+    data = request.get_json() or {}
+    user_id = data.get("user_id") or session.get("user_id")
+    if not user_id:
+        return jsonify({"status": "error", "message": "Unauthorized"}), 401
+    patient = _get_patient_by_id(patient_id)
+    if patient is None or patient.get("user_id") != user_id:
+        return jsonify({"status": "error", "message": "Patient not found or unauthorized."}), 404
+    full_name = data.get("full_name", "").strip()
+    if not full_name:
+        return jsonify({"status": "error", "message": "Patient name is required."}), 400
+
+    patients_ref.document(str(patient_id)).set({
+        "id": patient_id,
+        "user_id": user_id,
+        "full_name": full_name,
+        "age": data.get("age"),
+        "gender": data.get("gender", "").strip(),
+        "phone": data.get("phone", "").strip(),
+        "email": data.get("email", "").strip(),
+        "notes": data.get("notes", "").strip(),
+    }, merge=True)
+    return jsonify({"status": "success", "message": "Patient updated successfully."})
+
+@app.route("/api/patients/<patient_id>/delete", methods=["DELETE", "POST"])
+def api_delete_patient(patient_id):
+    user_id = request.args.get("user_id") or (request.get_json() or {}).get("user_id") or session.get("user_id")
+    if not user_id:
+        return jsonify({"status": "error", "message": "Unauthorized"}), 401
+    patient = _get_patient_by_id(patient_id)
+    if patient is None or patient.get("user_id") != user_id:
+        return jsonify({"status": "error", "message": "Patient not found or unauthorized."}), 404
+    patients_ref.document(str(patient_id)).delete()
+    return jsonify({"status": "success", "message": "Patient deleted successfully."})
+
+@app.route("/api/reports", methods=["GET"])
+def api_reports():
+    user_id = request.args.get("user_id") or session.get("user_id")
+    if not user_id:
+        return jsonify({"status": "error", "message": "Unauthorized"}), 401
+    records = []
+    for doc in diagnoses_ref.where("user_id", "==", user_id).stream():
+        data = doc.to_dict() or {}
+        data["id"] = data.get("id") or doc.id
+        records.append(data)
+    return jsonify({"status": "success", "reports": records})
 
 
 if __name__ == "__main__":

@@ -16,9 +16,13 @@ jobs:
     uses: ./.github/workflows/test.yml
     secrets: inherit
 
+  api_test:
+    name: Backend API Tests
+    uses: ./.github/workflows/api-test.yml
+    secrets: inherit
+
   security_review:
     name: Security Review
-    needs: test
     uses: ./.github/workflows/security-review.yml
     secrets: inherit
     permissions:
@@ -28,19 +32,24 @@ jobs:
 
   selenium_e2e:
     name: Selenium E2E
-    needs: security_review
+    needs: [test, api_test]
     uses: ./.github/workflows/selenium-e2e.yml
     secrets: inherit
 
   k6_load_test:
     name: k6 Load Test
-    needs: selenium_e2e
+    needs: [test, api_test]
     uses: ./.github/workflows/load-test.yml
+    secrets: inherit
+
+  android_e2e:
+    name: Android E2E & Tests
+    uses: ./.github/workflows/android-e2e.yml
     secrets: inherit
 
   enterprise_dashboard:
     name: Enterprise Dashboard
-    needs: [test, security_review, selenium_e2e, k6_load_test]
+    needs: [test, api_test, security_review, selenium_e2e, k6_load_test, android_e2e]
     if: always()
     runs-on: ubuntu-latest
     steps:

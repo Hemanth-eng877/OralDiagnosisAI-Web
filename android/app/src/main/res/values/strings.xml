@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">OralDiagnosisAI</string>
+    <string name="login">Login</string>
+    <string name="register">Sign Up</string>
+    <string name="email">Email Address</string>
+    <string name="password">Password</string>
+    <string name="name">Full Name</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="diagnose">New AI Diagnosis</string>
+    <string name="history">Diagnosis Reports</string>
+    <string name="patients">Patients Directory</string>
+    <string name="profile">My Profile</string>
+    <string name="settings">Server Settings</string>
+    <string name="chatbot">AI Oral Assistant</string>
+    <string name="logout">Logout</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="select_patient">Select Patient</string>
+    <string name="run_ai_diagnosis">Run On-Device AI Diagnosis</string>
+    <string name="upload_to_cloud">Save Diagnosis to Cloud</string>
+</resources>

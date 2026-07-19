@@ -71,11 +71,6 @@ jobs:
 
           echo "exit_code=$?" >> $GITHUB_OUTPUT
 
-      - name: Generate Load Test Summary
-        if: always()
-        run: |
-          python scripts/generate_load_test_summary.py reports
-
       - name: Upload Reports
         if: always()
         uses: actions/upload-artifact@v4
