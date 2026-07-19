@@ -148,7 +148,47 @@ jobs:
 
       # Only the critical-path smoke tests determine the workflow result.
       - name: Gate on critical smoke tests
+        id: smoke_tests
         env:
           CHROMEDRIVER: ${{ steps.chromedriver.outputs.chromedriver-path }}
         run: |
           python -m pytest selenium/tests -m smoke --junitxml=reports/critical-smoke-results.xml
+
+      - name: Publish workflow dashboard
+        if: always()
+        env:
+          SELENIUM_TESTS_OUTCOME: ${{ steps.smoke_tests.outcome }}
+        run: |
+          status() {
+            [ "$1" = "success" ] && printf '✓ Passed' || printf '✗ Failed'
+          }
+          branch="${GITHUB_HEAD_REF:-$GITHUB_REF_NAME}"
+          node_version="$(node --version 2>/dev/null || printf 'Not installed')"
+          overall="FAIL"
+          [ "$SELENIUM_TESTS_OUTCOME" = "success" ] && overall="PASS"
+          {
+            echo "## Workflow Dashboard"
+            echo ""
+            echo "### Build Information"
+            echo "| Repository | Branch | Commit SHA | Build Number | Workflow Name | Trigger Event | Runner OS | Python Version | Node Version | Date and Time |"
+            echo "| --- | --- | ---: | ---: | --- | --- | --- | --- | --- | --- |"
+            echo "| $GITHUB_REPOSITORY | $branch | ${GITHUB_SHA::7} | $GITHUB_RUN_NUMBER | $GITHUB_WORKFLOW | $GITHUB_EVENT_NAME | $RUNNER_OS | $(python --version 2>&1) | $node_version | $(date -u '+%Y-%m-%d %H:%M:%S UTC') |"
+            echo ""
+            echo "### Test Summary"
+            echo "| Test Area | Status |"
+            echo "| --- | --- |"
+            echo "| Python Tests | — Not run in this workflow |"
+            echo "| Frontend Tests | — Not run in this workflow |"
+            echo "| Selenium Tests | $(status \"$SELENIUM_TESTS_OUTCOME\") |"
+            echo "| Security Review | — Not run in this workflow |"
+            echo ""
+            echo "### Overall Status"
+            echo "| Check | Result |"
+            echo "| --- | --- |"
+            echo "| Overall Status | $overall |"
+            echo ""
+            echo "### Artifacts Generated"
+            echo "| Uploaded Artifact | Reports |"
+            echo "| --- | --- |"
+            echo "| selenium-e2e-artifacts | Selenium_Test_Report.xlsx, selenium-report.html, selenium-results.xml, selenium/screenshots/, selenium/reports/, screenshots/, logs/ |"
+          } >> "$GITHUB_STEP_SUMMARY"

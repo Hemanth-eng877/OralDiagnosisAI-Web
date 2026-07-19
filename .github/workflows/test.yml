@@ -39,10 +39,12 @@ jobs:
           npm run build
 
       - name: Run Python tests
+        id: python_tests
         run: |
           pytest -q --junitxml=reports/python-tests.xml --cov=. --cov-report=xml:reports/coverage.xml
 
       - name: Run frontend tests
+        id: frontend_tests
         working-directory: ./web
         run: |
           npm test -- --reporter=junit --outputFile=../reports/frontend-tests.xml
@@ -59,3 +61,43 @@ jobs:
           path: |
             reports/
             artifacts/
+
+      - name: Publish workflow dashboard
+        if: always()
+        env:
+          PYTHON_TESTS_OUTCOME: ${{ steps.python_tests.outcome }}
+          FRONTEND_TESTS_OUTCOME: ${{ steps.frontend_tests.outcome }}
+        run: |
+          status() {
+            [ "$1" = "success" ] && printf '✓ Passed' || printf '✗ Failed'
+          }
+          branch="${GITHUB_HEAD_REF:-$GITHUB_REF_NAME}"
+          node_version="$(node --version 2>/dev/null || printf 'Not installed')"
+          overall="PASS"
+          [ "$PYTHON_TESTS_OUTCOME" = "success" ] && [ "$FRONTEND_TESTS_OUTCOME" = "success" ] || overall="FAIL"
+          {
+            echo "## Workflow Dashboard"
+            echo ""
+            echo "### Build Information"
+            echo "| Repository | Branch | Commit SHA | Build Number | Workflow Name | Trigger Event | Runner OS | Python Version | Node Version | Date and Time |"
+            echo "| --- | --- | --- | ---: | --- | --- | --- | --- | --- | --- |"
+            echo "| $GITHUB_REPOSITORY | $branch | ${GITHUB_SHA::7} | $GITHUB_RUN_NUMBER | $GITHUB_WORKFLOW | $GITHUB_EVENT_NAME | $RUNNER_OS | $(python --version 2>&1) | $node_version | $(date -u '+%Y-%m-%d %H:%M:%S UTC') |"
+            echo ""
+            echo "### Test Summary"
+            echo "| Test Area | Status |"
+            echo "| --- | --- |"
+            echo "| Python Tests | $(status \"$PYTHON_TESTS_OUTCOME\") |"
+            echo "| Frontend Tests | $(status \"$FRONTEND_TESTS_OUTCOME\") |"
+            echo "| Selenium Tests | — Not run in this workflow |"
+            echo "| Security Review | — Not run in this workflow |"
+            echo ""
+            echo "### Overall Status"
+            echo "| Check | Result |"
+            echo "| --- | --- |"
+            echo "| Overall Status | $overall |"
+            echo ""
+            echo "### Artifacts Generated"
+            echo "| Uploaded Artifact | Reports |"
+            echo "| --- | --- |"
+            echo "| test-artifacts | reports/, artifacts/ |"
+          } >> "$GITHUB_STEP_SUMMARY"
