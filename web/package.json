@@ -9,7 +9,7 @@
     "test": "vitest run --reporter=verbose"
   },
   "dependencies": {
-    "firebase": "^9.22.0",
+    "firebase": "^12.16.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
