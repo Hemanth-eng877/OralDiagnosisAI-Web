@@ -1,0 +1,796 @@
+2026-07-23 16:42:33,095 INFO Started chrome
+2026-07-23 16:42:37,851 ERROR FAIL test_login_matrix[doc@example.com-password123-True] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[doc@example.com-password123-True]_20260723_164237_768178.png
+2026-07-23 16:42:39,990 INFO Closed browser
+2026-07-23 16:42:43,540 INFO Started chrome
+2026-07-23 16:42:48,131 ERROR FAIL test_login_matrix[nurse@example.com-pass1234-True] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[nurse@example.com-pass1234-True]_20260723_164247_895696.png
+2026-07-23 16:42:50,315 INFO Closed browser
+2026-07-23 16:42:53,866 INFO Started chrome
+2026-07-23 16:42:58,313 ERROR FAIL test_login_matrix[admin@example.com-admin123-True] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[admin@example.com-admin123-True]_20260723_164258_205348.png
+2026-07-23 16:43:00,506 INFO Closed browser
+2026-07-23 16:43:04,707 INFO Started chrome
+2026-07-23 16:43:09,207 ERROR FAIL test_login_matrix[test1@example.com-test1234-True] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[test1@example.com-test1234-True]_20260723_164309_090002.png
+2026-07-23 16:43:11,372 INFO Closed browser
+2026-07-23 16:43:14,927 INFO Started chrome
+2026-07-23 16:43:19,428 ERROR FAIL test_login_matrix[test2@example.com-test1234-True] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[test2@example.com-test1234-True]_20260723_164319_313287.png
+2026-07-23 16:43:21,640 INFO Closed browser
+2026-07-23 16:43:25,241 INFO Started chrome
+2026-07-23 16:43:29,667 ERROR FAIL test_login_matrix[test3@example.com-test1234-True] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[test3@example.com-test1234-True]_20260723_164329_569735.png
+2026-07-23 16:43:31,922 INFO Closed browser
+2026-07-23 16:43:35,477 INFO Started chrome
+2026-07-23 16:43:39,932 ERROR FAIL test_login_matrix[test4@example.com-test1234-True] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[test4@example.com-test1234-True]_20260723_164339_824673.png
+2026-07-23 16:43:42,287 INFO Closed browser
+2026-07-23 16:43:45,877 INFO Started chrome
+2026-07-23 16:43:50,325 ERROR FAIL test_login_matrix[test5@example.com-test1234-True] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[test5@example.com-test1234-True]_20260723_164350_213504.png
+2026-07-23 16:43:52,562 INFO Closed browser
+2026-07-23 16:43:56,103 INFO Started chrome
+2026-07-23 16:44:00,933 ERROR FAIL test_login_matrix[test6@example.com-test1234-True] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[test6@example.com-test1234-True]_20260723_164400_806891.png
+2026-07-23 16:44:03,114 INFO Closed browser
+2026-07-23 16:44:06,616 INFO Started chrome
+2026-07-23 16:44:11,474 ERROR FAIL test_login_matrix[test7@example.com-test1234-True] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[test7@example.com-test1234-True]_20260723_164411_375856.png
+2026-07-23 16:44:13,625 INFO Closed browser
+2026-07-23 16:44:17,094 INFO Started chrome
+2026-07-23 16:44:21,872 ERROR FAIL test_login_matrix[doc.example.com-password123-False] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[doc.example.com-password123-False]_20260723_164421_746197.png
+2026-07-23 16:44:24,015 INFO Closed browser
+2026-07-23 16:44:27,623 INFO Started chrome
+2026-07-23 16:44:32,332 ERROR FAIL test_login_matrix[doc@-password123-False] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[doc@-password123-False]_20260723_164432_239729.png
+2026-07-23 16:44:34,586 INFO Closed browser
+2026-07-23 16:44:38,194 INFO Started chrome
+2026-07-23 16:44:43,090 ERROR FAIL test_login_matrix[@example.com-password123-False] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[@example.com-password123-False]_20260723_164442_989514.png
+2026-07-23 16:44:45,333 INFO Closed browser
+2026-07-23 16:44:49,001 INFO Started chrome
+2026-07-23 16:44:53,773 ERROR FAIL test_login_matrix[doc@example-password123-False] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[doc@example-password123-False]_20260723_164453_677506.png
+2026-07-23 16:44:56,007 INFO Closed browser
+2026-07-23 16:44:59,507 INFO Started chrome
+2026-07-23 16:45:03,953 ERROR FAIL test_login_matrix[doc@.com-password123-False] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[doc@.com-password123-False]_20260723_164503_854087.png
+2026-07-23 16:45:06,189 INFO Closed browser
+2026-07-23 16:45:09,780 INFO Started chrome
+2026-07-23 16:45:14,256 ERROR FAIL test_login_matrix[ doc@example.com-password123-False] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[ doc@example.com-password123-False]_20260723_164514_164956.png
+2026-07-23 16:45:16,598 INFO Closed browser
+2026-07-23 16:45:20,168 INFO Started chrome
+2026-07-23 16:45:24,656 ERROR FAIL test_login_matrix[doc@example.com -password123-False] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[doc@example.com -password123-False]_20260723_164524_520656.png
+2026-07-23 16:45:26,837 INFO Closed browser
+2026-07-23 16:45:30,292 INFO Started chrome
+2026-07-23 16:45:34,768 ERROR FAIL test_login_matrix[doc@@example.com-password123-False] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[doc@@example.com-password123-False]_20260723_164534_647032.png
+2026-07-23 16:45:37,096 INFO Closed browser
+2026-07-23 16:45:40,569 INFO Started chrome
+2026-07-23 16:45:45,002 ERROR FAIL test_login_matrix[-password123-False] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[-password123-False]_20260723_164544_899003.png
+2026-07-23 16:45:47,212 INFO Closed browser
+2026-07-23 16:45:50,733 INFO Started chrome
+2026-07-23 16:46:57,556 INFO Started chrome
+2026-07-23 16:47:02,149 ERROR FAIL test_login_matrix[doc@example.com-password123-True] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[doc@example.com-password123-True]_20260723_164702_036637.png
+2026-07-23 16:47:04,319 INFO Closed browser
+2026-07-23 16:47:07,770 INFO Started chrome
+2026-07-23 16:47:12,213 ERROR FAIL test_login_matrix[nurse@example.com-pass1234-True] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[nurse@example.com-pass1234-True]_20260723_164712_100913.png
+2026-07-23 16:47:14,373 INFO Closed browser
+2026-07-23 16:47:17,837 INFO Started chrome
+2026-07-23 16:47:22,263 ERROR FAIL test_login_matrix[admin@example.com-admin123-True] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[admin@example.com-admin123-True]_20260723_164722_155828.png
+2026-07-23 16:47:24,416 INFO Closed browser
+2026-07-23 16:47:28,203 INFO Started chrome
+2026-07-23 16:47:32,647 ERROR FAIL test_login_matrix[test1@example.com-test1234-True] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[test1@example.com-test1234-True]_20260723_164732_528107.png
+2026-07-23 16:47:34,853 INFO Closed browser
+2026-07-23 16:47:38,692 INFO Started chrome
+2026-07-23 16:47:43,155 ERROR FAIL test_login_matrix[test2@example.com-test1234-True] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[test2@example.com-test1234-True]_20260723_164743_041422.png
+2026-07-23 16:47:45,322 INFO Closed browser
+2026-07-23 16:47:48,744 INFO Started chrome
+2026-07-23 16:47:53,176 ERROR FAIL test_login_matrix[test3@example.com-test1234-True] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[test3@example.com-test1234-True]_20260723_164753_055350.png
+2026-07-23 16:47:55,355 INFO Closed browser
+2026-07-23 16:47:59,259 INFO Started chrome
+2026-07-23 16:48:03,704 ERROR FAIL test_login_matrix[test4@example.com-test1234-True] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[test4@example.com-test1234-True]_20260723_164803_592469.png
+2026-07-23 16:48:05,898 INFO Closed browser
+2026-07-23 16:48:09,659 INFO Started chrome
+2026-07-23 16:48:14,136 ERROR FAIL test_login_matrix[test5@example.com-test1234-True] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[test5@example.com-test1234-True]_20260723_164814_024027.png
+2026-07-23 16:48:16,323 INFO Closed browser
+2026-07-23 16:48:20,453 INFO Started chrome
+2026-07-23 16:48:24,858 ERROR FAIL test_login_matrix[test6@example.com-test1234-True] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[test6@example.com-test1234-True]_20260723_164824_744177.png
+2026-07-23 16:48:27,078 INFO Closed browser
+2026-07-23 16:48:30,990 INFO Started chrome
+2026-07-23 16:48:35,414 ERROR FAIL test_login_matrix[test7@example.com-test1234-True] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[test7@example.com-test1234-True]_20260723_164835_312616.png
+2026-07-23 16:48:37,552 INFO Closed browser
+2026-07-23 16:48:41,564 INFO Started chrome
+2026-07-23 16:48:46,002 ERROR FAIL test_login_matrix[doc.example.com-password123-False] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[doc.example.com-password123-False]_20260723_164845_905742.png
+2026-07-23 16:48:48,283 INFO Closed browser
+2026-07-23 16:48:51,836 INFO Started chrome
+2026-07-23 16:48:56,256 ERROR FAIL test_login_matrix[doc@-password123-False] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[doc@-password123-False]_20260723_164856_156955.png
+2026-07-23 16:48:58,403 INFO Closed browser
+2026-07-23 16:49:01,977 INFO Started chrome
+2026-07-23 16:49:06,402 ERROR FAIL test_login_matrix[@example.com-password123-False] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[@example.com-password123-False]_20260723_164906_302323.png
+2026-07-23 16:49:08,580 INFO Closed browser
+2026-07-23 16:49:52,557 INFO Started chrome
+2026-07-23 16:49:57,100 ERROR FAIL test_login_matrix[doc@example.com-password123-True] screenshot=C:\Users\heman\OralDiagnosisAI-Web\selenium\screenshots\test_login_matrix[doc@example.com-password123-True]_20260723_164956_990102.png
+2026-07-23 16:49:59,262 INFO Closed browser
+2026-07-23 16:52:34,105 INFO Started chrome
+2026-07-23 16:52:35,968 INFO PASS test_login_matrix[doc@example.com-password123-True]
+2026-07-23 16:52:38,170 INFO Closed browser
+2026-07-23 16:52:41,972 INFO Started chrome
+2026-07-23 16:52:42,632 INFO PASS test_login_matrix[nurse@example.com-pass1234-True]
+2026-07-23 16:52:44,852 INFO Closed browser
+2026-07-23 16:52:48,878 INFO Started chrome
+2026-07-23 16:52:49,949 INFO PASS test_login_matrix[admin@example.com-admin123-True]
+2026-07-23 16:52:52,111 INFO Closed browser
+2026-07-23 16:52:55,913 INFO Started chrome
+2026-07-23 16:52:56,591 INFO PASS test_login_matrix[test1@example.com-test1234-True]
+2026-07-23 16:52:58,778 INFO Closed browser
+2026-07-23 16:53:02,295 INFO Started chrome
+2026-07-23 16:53:04,247 INFO PASS test_login_matrix[test2@example.com-test1234-True]
+2026-07-23 16:53:06,460 INFO Closed browser
+2026-07-23 16:53:10,025 INFO Started chrome
+2026-07-23 16:53:10,973 INFO PASS test_login_matrix[test3@example.com-test1234-True]
+2026-07-23 16:53:13,168 INFO Closed browser
+2026-07-23 16:53:16,727 INFO Started chrome
+2026-07-23 16:53:17,411 INFO PASS test_login_matrix[test4@example.com-test1234-True]
+2026-07-23 16:53:19,615 INFO Closed browser
+2026-07-23 16:53:23,238 INFO Started chrome
+2026-07-23 16:53:24,507 INFO PASS test_login_matrix[test5@example.com-test1234-True]
+2026-07-23 16:53:26,727 INFO Closed browser
+2026-07-23 16:53:30,313 INFO Started chrome
+2026-07-23 16:53:31,452 INFO PASS test_login_matrix[test6@example.com-test1234-True]
+2026-07-23 16:53:33,708 INFO Closed browser
+2026-07-23 16:53:38,044 INFO Started chrome
+2026-07-23 16:53:40,443 INFO PASS test_login_matrix[test7@example.com-test1234-True]
+2026-07-23 16:53:42,666 INFO Closed browser
+2026-07-23 16:53:46,563 INFO Started chrome
+2026-07-23 16:53:48,994 INFO PASS test_login_matrix[doc.example.com-password123-False]
+2026-07-23 16:53:51,177 INFO Closed browser
+2026-07-23 16:53:54,828 INFO Started chrome
+2026-07-23 16:53:55,727 INFO PASS test_login_matrix[doc@-password123-False]
+2026-07-23 16:53:57,948 INFO Closed browser
+2026-07-23 16:54:02,094 INFO Started chrome
+2026-07-23 16:54:02,748 INFO PASS test_login_matrix[@example.com-password123-False]
+2026-07-23 16:54:04,947 INFO Closed browser
+2026-07-23 16:54:08,434 INFO Started chrome
+2026-07-23 16:54:09,447 INFO PASS test_login_matrix[doc@example-password123-False]
+2026-07-23 16:54:11,683 INFO Closed browser
+2026-07-23 16:54:15,934 INFO Started chrome
+2026-07-23 16:54:17,060 INFO PASS test_login_matrix[doc@.com-password123-False]
+2026-07-23 16:54:19,355 INFO Closed browser
+2026-07-23 16:54:23,131 INFO Started chrome
+2026-07-23 16:54:24,077 INFO PASS test_login_matrix[ doc@example.com-password123-False]
+2026-07-23 16:54:26,315 INFO Closed browser
+2026-07-23 16:54:29,941 INFO Started chrome
+2026-07-23 16:54:31,186 INFO PASS test_login_matrix[doc@example.com -password123-False]
+2026-07-23 16:54:33,383 INFO Closed browser
+2026-07-23 16:54:37,071 INFO Started chrome
+2026-07-23 16:54:38,030 INFO PASS test_login_matrix[doc@@example.com-password123-False]
+2026-07-23 16:54:40,245 INFO Closed browser
+2026-07-23 16:54:43,756 INFO Started chrome
+2026-07-23 16:54:44,564 INFO PASS test_login_matrix[-password123-False]
+2026-07-23 16:54:46,796 INFO Closed browser
+2026-07-23 16:54:50,269 INFO Started chrome
+2026-07-23 16:54:51,817 INFO PASS test_login_matrix[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.com-password123-False]
+2026-07-23 16:54:54,039 INFO Closed browser
+2026-07-23 16:54:57,584 INFO Started chrome
+2026-07-23 16:54:58,985 INFO PASS test_login_matrix[doc@example.com--False]
+2026-07-23 16:55:01,189 INFO Closed browser
+2026-07-23 16:55:05,262 INFO Started chrome
+2026-07-23 16:55:07,192 INFO PASS test_login_matrix[doc@example.com- -False]
+2026-07-23 16:55:09,378 INFO Closed browser
+2026-07-23 16:55:13,177 INFO Started chrome
+2026-07-23 16:55:13,822 INFO PASS test_login_matrix[doc@example.com-short-False]
+2026-07-23 16:55:15,969 INFO Closed browser
+2026-07-23 16:55:19,970 INFO Started chrome
+2026-07-23 16:55:20,959 INFO PASS test_login_matrix[doc@example.com-123-False]
+2026-07-23 16:55:23,403 INFO Closed browser
+2026-07-23 16:55:28,294 INFO Started chrome
+2026-07-23 16:55:29,677 INFO PASS test_login_matrix[doc@example.com-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-False]
+2026-07-23 16:55:31,808 INFO Closed browser
+2026-07-23 16:55:35,472 INFO Started chrome
+2026-07-23 16:55:36,199 INFO PASS test_login_matrix[doc@example.com-<script>alert(1)</script>-False]
+2026-07-23 16:55:38,367 INFO Closed browser
+2026-07-23 16:55:41,307 INFO Started chrome
+2026-07-23 16:55:42,264 INFO PASS test_login_matrix[doc@example.com-' OR 1=1;---False]
+2026-07-23 16:55:44,486 INFO Closed browser
+2026-07-23 16:55:48,328 INFO Started chrome
+2026-07-23 16:55:49,638 INFO PASS test_login_matrix[doc@example.com-" OR "1"="1-False]
+2026-07-23 16:55:51,871 INFO Closed browser
+2026-07-23 16:55:55,638 INFO Started chrome
+2026-07-23 16:55:57,298 INFO PASS test_login_matrix[doc@example.com-DROP TABLE users;-False]
+2026-07-23 16:55:59,493 INFO Closed browser
+2026-07-23 16:56:03,325 INFO Started chrome
+2026-07-23 16:56:04,338 INFO PASS test_login_matrix[doc@example.com-password123!@#-False]
+2026-07-23 16:56:06,578 INFO Closed browser
+2026-07-23 16:56:10,488 INFO Started chrome
+2026-07-23 16:56:12,086 INFO PASS test_signup_matrix[User 1-new1@example.com-pass1231!-True]
+2026-07-23 16:56:14,286 INFO Closed browser
+2026-07-23 16:56:18,436 INFO Started chrome
+2026-07-23 16:56:20,923 INFO PASS test_signup_matrix[User 2-new2@example.com-pass1232!-True]
+2026-07-23 16:56:23,128 INFO Closed browser
+2026-07-23 16:56:27,309 INFO Started chrome
+2026-07-23 16:56:28,849 INFO PASS test_signup_matrix[User 3-new3@example.com-pass1233!-True]
+2026-07-23 16:56:31,038 INFO Closed browser
+2026-07-23 16:56:35,137 INFO Started chrome
+2026-07-23 16:56:36,286 INFO PASS test_signup_matrix[User 4-new4@example.com-pass1234!-True]
+2026-07-23 16:56:38,545 INFO Closed browser
+2026-07-23 16:56:42,430 INFO Started chrome
+2026-07-23 16:56:43,514 INFO PASS test_signup_matrix[User 5-new5@example.com-pass1235!-True]
+2026-07-23 16:56:45,791 INFO Closed browser
+2026-07-23 16:56:49,828 INFO Started chrome
+2026-07-23 16:56:51,470 INFO PASS test_signup_matrix[User 6-new6@example.com-pass1236!-True]
+2026-07-23 16:56:53,789 INFO Closed browser
+2026-07-23 16:56:57,353 INFO Started chrome
+2026-07-23 16:56:59,817 INFO PASS test_signup_matrix[User 7-new7@example.com-pass1237!-True]
+2026-07-23 16:57:02,080 INFO Closed browser
+2026-07-23 16:57:06,249 INFO Started chrome
+2026-07-23 16:57:09,753 INFO PASS test_signup_matrix[User 8-new8@example.com-pass1238!-True]
+2026-07-23 16:57:11,962 INFO Closed browser
+2026-07-23 16:57:16,328 INFO Started chrome
+2026-07-23 16:57:18,037 INFO PASS test_signup_matrix[User 9-new9@example.com-pass1239!-True]
+2026-07-23 16:57:20,246 INFO Closed browser
+2026-07-23 16:57:24,251 INFO Started chrome
+2026-07-23 16:57:25,538 INFO PASS test_signup_matrix[User 10-new10@example.com-pass12310!-True]
+2026-07-23 16:57:27,750 INFO Closed browser
+2026-07-23 16:57:32,009 INFO Started chrome
+2026-07-23 16:57:33,899 INFO PASS test_signup_matrix[User 11-new11@example.com-pass12311!-True]
+2026-07-23 16:57:36,096 INFO Closed browser
+2026-07-23 16:57:40,115 INFO Started chrome
+2026-07-23 16:57:41,498 INFO PASS test_signup_matrix[User 12-new12@example.com-pass12312!-True]
+2026-07-23 16:57:43,693 INFO Closed browser
+2026-07-23 16:57:47,820 INFO Started chrome
+2026-07-23 16:57:49,693 INFO PASS test_signup_matrix[User 13-new13@example.com-pass12313!-True]
+2026-07-23 16:57:51,926 INFO Closed browser
+2026-07-23 16:57:55,641 INFO Started chrome
+2026-07-23 16:57:56,895 INFO PASS test_signup_matrix[User 14-new14@example.com-pass12314!-True]
+2026-07-23 16:57:59,146 INFO Closed browser
+2026-07-23 16:58:03,086 INFO Started chrome
+2026-07-23 16:58:04,535 INFO PASS test_signup_matrix[User 15-new15@example.com-pass12315!-True]
+2026-07-23 16:58:06,725 INFO Closed browser
+2026-07-23 16:58:10,712 INFO Started chrome
+2026-07-23 16:58:11,527 INFO PASS test_signup_matrix[-empty@example.com-password123-False]
+2026-07-23 16:58:13,769 INFO Closed browser
+2026-07-23 16:58:17,761 INFO Started chrome
+2026-07-23 16:58:18,671 INFO PASS test_signup_matrix[No Email--password123-False]
+2026-07-23 16:58:20,871 INFO Closed browser
+2026-07-23 16:58:24,646 INFO Started chrome
+2026-07-23 16:58:26,399 INFO PASS test_signup_matrix[No Pass-nopass@example.com--False]
+2026-07-23 16:58:28,609 INFO Closed browser
+2026-07-23 16:58:32,331 INFO Started chrome
+2026-07-23 16:58:34,747 INFO PASS test_signup_matrix[Short Pass-short@example.com-1234-False]
+2026-07-23 16:58:38,208 INFO Closed browser
+2026-07-23 16:58:42,388 INFO Started chrome
+2026-07-23 16:58:43,929 INFO PASS test_signup_matrix[Bad Email-bademail-password123-False]
+2026-07-23 16:58:46,601 INFO Closed browser
+2026-07-23 16:58:50,314 INFO Started chrome
+2026-07-23 16:58:51,794 INFO PASS test_diagnosis_upload[dummy_image_0.jpg-Diagnosis notes for test 0]
+2026-07-23 16:58:57,600 INFO Closed browser
+2026-07-23 16:59:02,084 INFO Started chrome
+2026-07-23 16:59:03,682 INFO PASS test_diagnosis_upload[dummy_image_1.jpg-Diagnosis notes for test 1]
+2026-07-23 16:59:05,924 INFO Closed browser
+2026-07-23 16:59:10,516 INFO Started chrome
+2026-07-23 16:59:11,833 INFO PASS test_diagnosis_upload[dummy_image_2.jpg-Diagnosis notes for test 2]
+2026-07-23 16:59:14,130 INFO Closed browser
+2026-07-23 16:59:18,649 INFO Started chrome
+2026-07-23 16:59:20,102 INFO PASS test_diagnosis_upload[dummy_image_3.jpg-Diagnosis notes for test 3]
+2026-07-23 16:59:22,367 INFO Closed browser
+2026-07-23 16:59:26,462 INFO Started chrome
+2026-07-23 16:59:28,089 INFO PASS test_diagnosis_upload[dummy_image_4.jpg-Diagnosis notes for test 4]
+2026-07-23 16:59:30,327 INFO Closed browser
+2026-07-23 16:59:34,607 INFO Started chrome
+2026-07-23 16:59:36,228 INFO PASS test_diagnosis_upload[dummy_image_5.jpg-Diagnosis notes for test 5]
+2026-07-23 16:59:38,484 INFO Closed browser
+2026-07-23 16:59:42,641 INFO Started chrome
+2026-07-23 16:59:44,264 INFO PASS test_diagnosis_upload[dummy_image_6.jpg-Diagnosis notes for test 6]
+2026-07-23 16:59:46,460 INFO Closed browser
+2026-07-23 16:59:50,999 INFO Started chrome
+2026-07-23 16:59:52,288 INFO PASS test_diagnosis_upload[dummy_image_7.jpg-Diagnosis notes for test 7]
+2026-07-23 16:59:54,516 INFO Closed browser
+2026-07-23 16:59:58,395 INFO Started chrome
+2026-07-23 16:59:59,727 INFO PASS test_diagnosis_upload[dummy_image_8.jpg-Diagnosis notes for test 8]
+2026-07-23 17:00:01,933 INFO Closed browser
+2026-07-23 17:00:06,146 INFO Started chrome
+2026-07-23 17:00:07,367 INFO PASS test_diagnosis_upload[dummy_image_9.jpg-Diagnosis notes for test 9]
+2026-07-23 17:00:09,575 INFO Closed browser
+2026-07-23 17:00:13,351 INFO Started chrome
+2026-07-23 17:00:14,765 INFO PASS test_diagnosis_upload[dummy_image_10.jpg-Diagnosis notes for test 10]
+2026-07-23 17:00:17,052 INFO Closed browser
+2026-07-23 17:00:21,437 INFO Started chrome
+2026-07-23 17:00:23,025 INFO PASS test_diagnosis_upload[dummy_image_11.jpg-Diagnosis notes for test 11]
+2026-07-23 17:00:25,299 INFO Closed browser
+2026-07-23 17:00:29,147 INFO Started chrome
+2026-07-23 17:00:30,582 INFO PASS test_diagnosis_upload[dummy_image_12.jpg-Diagnosis notes for test 12]
+2026-07-23 17:00:32,807 INFO Closed browser
+2026-07-23 17:00:37,026 INFO Started chrome
+2026-07-23 17:00:38,608 INFO PASS test_diagnosis_upload[dummy_image_13.jpg-Diagnosis notes for test 13]
+2026-07-23 17:00:40,815 INFO Closed browser
+2026-07-23 17:00:44,994 INFO Started chrome
+2026-07-23 17:00:47,712 INFO PASS test_diagnosis_upload[dummy_image_14.jpg-Diagnosis notes for test 14]
+2026-07-23 17:00:49,911 INFO Closed browser
+2026-07-23 17:00:53,698 INFO Started chrome
+2026-07-23 17:00:55,114 INFO PASS test_diagnosis_upload[invalid_file.txt-This should fail because it's a text file]
+2026-07-23 17:00:57,429 INFO Closed browser
+2026-07-23 17:01:01,320 INFO Started chrome
+2026-07-23 17:01:02,837 INFO PASS test_diagnosis_upload[large_image.jpg-This image is too large]
+2026-07-23 17:01:05,053 INFO Closed browser
+2026-07-23 17:01:09,040 INFO Started chrome
+2026-07-23 17:01:10,327 INFO PASS test_diagnosis_upload[-Testing empty upload]
+2026-07-23 17:01:12,549 INFO Closed browser
+2026-07-23 17:01:16,570 INFO Started chrome
+2026-07-23 17:01:18,072 INFO PASS test_diagnosis_upload[malicious.exe-Testing malicious file upload]
+2026-07-23 17:01:20,262 INFO Closed browser
+2026-07-23 17:01:24,022 INFO Started chrome
+2026-07-23 17:01:25,214 INFO PASS test_navigation[/dashboard]
+2026-07-23 17:01:27,429 INFO Closed browser
+2026-07-23 17:01:31,291 INFO Started chrome
+2026-07-23 17:01:32,572 INFO PASS test_navigation[/patients]
+2026-07-23 17:01:34,864 INFO Closed browser
+2026-07-23 17:01:38,894 INFO Started chrome
+2026-07-23 17:01:40,585 INFO PASS test_navigation[/patients/add]
+2026-07-23 17:01:42,796 INFO Closed browser
+2026-07-23 17:01:46,956 INFO Started chrome
+2026-07-23 17:01:48,902 INFO PASS test_navigation[/diagnose]
+2026-07-23 17:01:51,163 INFO Closed browser
+2026-07-23 17:01:55,159 INFO Started chrome
+2026-07-23 17:01:56,767 INFO PASS test_navigation[/reports]
+2026-07-23 17:01:59,098 INFO Closed browser
+2026-07-23 17:02:04,140 INFO Started chrome
+2026-07-23 17:02:05,774 INFO PASS test_navigation[/login]
+2026-07-23 17:02:08,021 INFO Closed browser
+2026-07-23 17:02:13,024 INFO Started chrome
+2026-07-23 17:02:14,303 INFO PASS test_navigation[/signup]
+2026-07-23 17:02:16,526 INFO Closed browser
+2026-07-23 17:02:21,263 INFO Started chrome
+2026-07-23 17:03:31,497 INFO Started chrome
+2026-07-23 17:03:32,460 INFO PASS test_login_matrix[doc@example.com-password123-True]
+2026-07-23 17:03:34,689 INFO Closed browser
+2026-07-23 17:03:38,623 INFO Started chrome
+2026-07-23 17:03:39,986 INFO PASS test_login_matrix[nurse@example.com-pass1234-True]
+2026-07-23 17:03:42,179 INFO Closed browser
+2026-07-23 17:03:46,646 INFO Started chrome
+2026-07-23 17:03:48,200 INFO PASS test_login_matrix[admin@example.com-admin123-True]
+2026-07-23 17:03:50,372 INFO Closed browser
+2026-07-23 17:03:54,463 INFO Started chrome
+2026-07-23 17:03:56,227 INFO PASS test_login_matrix[test1@example.com-test1234-True]
+2026-07-23 17:03:58,447 INFO Closed browser
+2026-07-23 17:04:02,895 INFO Started chrome
+2026-07-23 17:04:04,324 INFO PASS test_login_matrix[test2@example.com-test1234-True]
+2026-07-23 17:04:06,612 INFO Closed browser
+2026-07-23 17:04:11,227 INFO Started chrome
+2026-07-23 17:04:15,027 INFO PASS test_login_matrix[test3@example.com-test1234-True]
+2026-07-23 17:04:17,283 INFO Closed browser
+2026-07-23 17:04:22,350 INFO Started chrome
+2026-07-23 17:04:24,709 INFO PASS test_login_matrix[test4@example.com-test1234-True]
+2026-07-23 17:04:26,966 INFO Closed browser
+2026-07-23 17:04:31,385 INFO Started chrome
+2026-07-23 17:04:32,587 INFO PASS test_login_matrix[test5@example.com-test1234-True]
+2026-07-23 17:04:34,809 INFO Closed browser
+2026-07-23 17:04:39,709 INFO Started chrome
+2026-07-23 17:04:40,756 INFO PASS test_login_matrix[test6@example.com-test1234-True]
+2026-07-23 17:04:43,073 INFO Closed browser
+2026-07-23 17:04:47,007 INFO Started chrome
+2026-07-23 17:04:48,064 INFO PASS test_login_matrix[test7@example.com-test1234-True]
+2026-07-23 17:04:50,334 INFO Closed browser
+2026-07-23 17:04:54,326 INFO Started chrome
+2026-07-23 17:04:55,663 INFO PASS test_login_matrix[doc.example.com-password123-False]
+2026-07-23 17:04:57,881 INFO Closed browser
+2026-07-23 17:05:02,543 INFO Started chrome
+2026-07-23 17:05:04,679 INFO PASS test_login_matrix[doc@-password123-False]
+2026-07-23 17:05:06,849 INFO Closed browser
+2026-07-23 17:05:11,074 INFO Started chrome
+2026-07-23 17:05:11,946 INFO PASS test_login_matrix[@example.com-password123-False]
+2026-07-23 17:05:14,132 INFO Closed browser
+2026-07-23 17:05:18,647 INFO Started chrome
+2026-07-23 17:05:20,572 INFO PASS test_login_matrix[doc@example-password123-False]
+2026-07-23 17:05:22,796 INFO Closed browser
+2026-07-23 17:05:27,444 INFO Started chrome
+2026-07-23 17:05:29,216 INFO PASS test_login_matrix[doc@.com-password123-False]
+2026-07-23 17:05:31,414 INFO Closed browser
+2026-07-23 17:05:35,784 INFO Started chrome
+2026-07-23 17:05:38,090 INFO PASS test_login_matrix[ doc@example.com-password123-False]
+2026-07-23 17:05:41,098 INFO Closed browser
+2026-07-23 17:05:45,790 INFO Started chrome
+2026-07-23 17:05:46,668 INFO PASS test_login_matrix[doc@example.com -password123-False]
+2026-07-23 17:05:49,016 INFO Closed browser
+2026-07-23 17:05:53,669 INFO Started chrome
+2026-07-23 17:08:28,754 INFO Closed browser
+2026-07-23 17:10:08,912 INFO Started chrome
+2026-07-23 17:10:09,658 INFO PASS test_login_matrix[doc@example.com-password123-True]
+2026-07-23 17:10:11,825 INFO Closed browser
+2026-07-23 17:10:16,337 INFO Started chrome
+2026-07-23 17:10:16,961 INFO PASS test_login_matrix[nurse@example.com-pass1234-True]
+2026-07-23 17:10:19,187 INFO Closed browser
+2026-07-23 17:10:23,240 INFO Started chrome
+2026-07-23 17:10:24,348 INFO PASS test_login_matrix[admin@example.com-admin123-True]
+2026-07-23 17:10:26,629 INFO Closed browser
+2026-07-23 17:10:30,500 INFO Started chrome
+2026-07-23 17:10:31,403 INFO PASS test_login_matrix[test1@example.com-test1234-True]
+2026-07-23 17:10:33,736 INFO Closed browser
+2026-07-23 17:10:37,413 INFO Started chrome
+2026-07-23 17:10:38,711 INFO PASS test_login_matrix[test2@example.com-test1234-True]
+2026-07-23 17:10:40,960 INFO Closed browser
+2026-07-23 17:10:44,422 INFO Started chrome
+2026-07-23 17:10:45,521 INFO PASS test_login_matrix[test3@example.com-test1234-True]
+2026-07-23 17:10:47,721 INFO Closed browser
+2026-07-23 17:10:51,331 INFO Started chrome
+2026-07-23 17:10:52,118 INFO PASS test_login_matrix[test4@example.com-test1234-True]
+2026-07-23 17:10:54,355 INFO Closed browser
+2026-07-23 17:10:57,991 INFO Started chrome
+2026-07-23 17:10:58,687 INFO PASS test_login_matrix[test5@example.com-test1234-True]
+2026-07-23 17:11:00,891 INFO Closed browser
+2026-07-23 17:11:04,570 INFO Started chrome
+2026-07-23 17:11:05,220 INFO PASS test_login_matrix[test6@example.com-test1234-True]
+2026-07-23 17:11:07,420 INFO Closed browser
+2026-07-23 17:11:11,200 INFO Started chrome
+2026-07-23 17:11:11,842 INFO PASS test_login_matrix[test7@example.com-test1234-True]
+2026-07-23 17:11:14,034 INFO Closed browser
+2026-07-23 17:11:17,797 INFO Started chrome
+2026-07-23 17:11:18,716 INFO PASS test_login_matrix[doc.example.com-password123-False]
+2026-07-23 17:11:20,927 INFO Closed browser
+2026-07-23 17:11:24,515 INFO Started chrome
+2026-07-23 17:11:25,107 INFO PASS test_login_matrix[doc@-password123-False]
+2026-07-23 17:11:27,327 INFO Closed browser
+2026-07-23 17:11:30,930 INFO Started chrome
+2026-07-23 17:11:31,592 INFO PASS test_login_matrix[@example.com-password123-False]
+2026-07-23 17:11:33,772 INFO Closed browser
+2026-07-23 17:11:37,508 INFO Started chrome
+2026-07-23 17:11:38,188 INFO PASS test_login_matrix[doc@example-password123-False]
+2026-07-23 17:11:40,376 INFO Closed browser
+2026-07-23 17:11:44,569 INFO Started chrome
+2026-07-23 17:11:45,500 INFO PASS test_login_matrix[doc@.com-password123-False]
+2026-07-23 17:11:47,697 INFO Closed browser
+2026-07-23 17:11:51,508 INFO Started chrome
+2026-07-23 17:11:52,728 INFO PASS test_login_matrix[ doc@example.com-password123-False]
+2026-07-23 17:11:54,939 INFO Closed browser
+2026-07-23 17:12:00,125 INFO Started chrome
+2026-07-23 17:12:01,188 INFO PASS test_login_matrix[doc@example.com -password123-False]
+2026-07-23 17:12:03,351 INFO Closed browser
+2026-07-23 17:12:08,408 INFO Started chrome
+2026-07-23 17:12:09,156 INFO PASS test_login_matrix[doc@@example.com-password123-False]
+2026-07-23 17:12:11,355 INFO Closed browser
+2026-07-23 17:12:15,099 INFO Started chrome
+2026-07-23 17:12:15,819 INFO PASS test_login_matrix[-password123-False]
+2026-07-23 17:12:18,021 INFO Closed browser
+2026-07-23 17:12:21,707 INFO Started chrome
+2026-07-23 17:12:22,699 INFO PASS test_login_matrix[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.com-password123-False]
+2026-07-23 17:12:25,135 INFO Closed browser
+2026-07-23 17:12:28,860 INFO Started chrome
+2026-07-23 17:12:29,500 INFO PASS test_login_matrix[doc@example.com--False]
+2026-07-23 17:12:31,716 INFO Closed browser
+2026-07-23 17:12:35,464 INFO Started chrome
+2026-07-23 17:12:36,198 INFO PASS test_login_matrix[doc@example.com- -False]
+2026-07-23 17:12:38,386 INFO Closed browser
+2026-07-23 17:12:42,278 INFO Started chrome
+2026-07-23 17:12:43,062 INFO PASS test_login_matrix[doc@example.com-short-False]
+2026-07-23 17:12:45,294 INFO Closed browser
+2026-07-23 17:12:48,997 INFO Started chrome
+2026-07-23 17:12:49,886 INFO PASS test_login_matrix[doc@example.com-123-False]
+2026-07-23 17:12:52,131 INFO Closed browser
+2026-07-23 17:12:55,988 INFO Started chrome
+2026-07-23 17:12:56,951 INFO PASS test_login_matrix[doc@example.com-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-False]
+2026-07-23 17:12:59,176 INFO Closed browser
+2026-07-23 17:13:03,093 INFO Started chrome
+2026-07-23 17:13:03,792 INFO PASS test_login_matrix[doc@example.com-<script>alert(1)</script>-False]
+2026-07-23 17:13:06,036 INFO Closed browser
+2026-07-23 17:13:09,619 INFO Started chrome
+2026-07-23 17:13:10,230 INFO PASS test_login_matrix[doc@example.com-' OR 1=1;---False]
+2026-07-23 17:13:12,437 INFO Closed browser
+2026-07-23 17:13:16,128 INFO Started chrome
+2026-07-23 17:13:16,729 INFO PASS test_login_matrix[doc@example.com-" OR "1"="1-False]
+2026-07-23 17:13:18,968 INFO Closed browser
+2026-07-23 17:13:22,673 INFO Started chrome
+2026-07-23 17:13:23,294 INFO PASS test_login_matrix[doc@example.com-DROP TABLE users;-False]
+2026-07-23 17:13:25,816 INFO Closed browser
+2026-07-23 17:13:29,721 INFO Started chrome
+2026-07-23 17:13:30,553 INFO PASS test_login_matrix[doc@example.com-password123!@#-False]
+2026-07-23 17:13:32,785 INFO Closed browser
+2026-07-23 17:13:36,625 INFO Started chrome
+2026-07-23 17:13:37,541 INFO PASS test_signup_matrix[User 1-new1@example.com-pass1231!-True]
+2026-07-23 17:13:39,784 INFO Closed browser
+2026-07-23 17:13:43,649 INFO Started chrome
+2026-07-23 17:13:44,707 INFO PASS test_signup_matrix[User 2-new2@example.com-pass1232!-True]
+2026-07-23 17:13:46,970 INFO Closed browser
+2026-07-23 17:13:50,766 INFO Started chrome
+2026-07-23 17:13:52,442 INFO PASS test_signup_matrix[User 3-new3@example.com-pass1233!-True]
+2026-07-23 17:13:54,632 INFO Closed browser
+2026-07-23 17:13:58,789 INFO Started chrome
+2026-07-23 17:14:00,122 INFO PASS test_signup_matrix[User 4-new4@example.com-pass1234!-True]
+2026-07-23 17:14:02,355 INFO Closed browser
+2026-07-23 17:14:06,390 INFO Started chrome
+2026-07-23 17:14:07,474 INFO PASS test_signup_matrix[User 5-new5@example.com-pass1235!-True]
+2026-07-23 17:14:09,671 INFO Closed browser
+2026-07-23 17:14:13,712 INFO Started chrome
+2026-07-23 17:14:15,040 INFO PASS test_signup_matrix[User 6-new6@example.com-pass1236!-True]
+2026-07-23 17:14:17,241 INFO Closed browser
+2026-07-23 17:14:21,024 INFO Started chrome
+2026-07-23 17:14:22,215 INFO PASS test_signup_matrix[User 7-new7@example.com-pass1237!-True]
+2026-07-23 17:14:24,494 INFO Closed browser
+2026-07-23 17:14:28,336 INFO Started chrome
+2026-07-23 17:14:29,152 INFO PASS test_signup_matrix[User 8-new8@example.com-pass1238!-True]
+2026-07-23 17:14:31,354 INFO Closed browser
+2026-07-23 17:14:35,615 INFO Started chrome
+2026-07-23 17:14:36,643 INFO PASS test_signup_matrix[User 9-new9@example.com-pass1239!-True]
+2026-07-23 17:14:38,878 INFO Closed browser
+2026-07-23 17:14:43,745 INFO Started chrome
+2026-07-23 17:14:44,877 INFO PASS test_signup_matrix[User 10-new10@example.com-pass12310!-True]
+2026-07-23 17:14:47,096 INFO Closed browser
+2026-07-23 17:14:52,290 INFO Started chrome
+2026-07-23 17:14:53,762 INFO PASS test_signup_matrix[User 11-new11@example.com-pass12311!-True]
+2026-07-23 17:14:55,990 INFO Closed browser
+2026-07-23 17:15:00,986 INFO Started chrome
+2026-07-23 17:15:01,963 INFO PASS test_signup_matrix[User 12-new12@example.com-pass12312!-True]
+2026-07-23 17:15:04,207 INFO Closed browser
+2026-07-23 17:15:09,200 INFO Started chrome
+2026-07-23 17:15:10,836 INFO PASS test_signup_matrix[User 13-new13@example.com-pass12313!-True]
+2026-07-23 17:15:13,096 INFO Closed browser
+2026-07-23 17:15:17,103 INFO Started chrome
+2026-07-23 17:15:18,781 INFO PASS test_signup_matrix[User 14-new14@example.com-pass12314!-True]
+2026-07-23 17:15:21,112 INFO Closed browser
+2026-07-23 17:15:24,852 INFO Started chrome
+2026-07-23 17:15:26,239 INFO PASS test_signup_matrix[User 15-new15@example.com-pass12315!-True]
+2026-07-23 17:15:28,489 INFO Closed browser
+2026-07-23 17:15:32,668 INFO Started chrome
+2026-07-23 17:15:33,512 INFO PASS test_signup_matrix[-empty@example.com-password123-False]
+2026-07-23 17:15:35,711 INFO Closed browser
+2026-07-23 17:15:39,719 INFO Started chrome
+2026-07-23 17:15:40,631 INFO PASS test_signup_matrix[No Email--password123-False]
+2026-07-23 17:15:42,859 INFO Closed browser
+2026-07-23 17:15:46,549 INFO Started chrome
+2026-07-23 17:15:47,498 INFO PASS test_signup_matrix[No Pass-nopass@example.com--False]
+2026-07-23 17:15:49,702 INFO Closed browser
+2026-07-23 17:15:53,721 INFO Started chrome
+2026-07-23 17:15:54,696 INFO PASS test_signup_matrix[Short Pass-short@example.com-1234-False]
+2026-07-23 17:15:56,906 INFO Closed browser
+2026-07-23 17:16:00,833 INFO Started chrome
+2026-07-23 17:16:01,913 INFO PASS test_signup_matrix[Bad Email-bademail-password123-False]
+2026-07-23 17:16:04,129 INFO Closed browser
+2026-07-23 17:16:09,380 INFO Started chrome
+2026-07-23 17:16:09,889 INFO PASS test_diagnosis_upload[dummy_image_0.jpg-Diagnosis notes for test 0]
+2026-07-23 17:16:12,166 INFO Closed browser
+2026-07-23 17:16:17,067 INFO Started chrome
+2026-07-23 17:16:17,529 INFO PASS test_diagnosis_upload[dummy_image_1.jpg-Diagnosis notes for test 1]
+2026-07-23 17:16:19,760 INFO Closed browser
+2026-07-23 17:16:23,557 INFO Started chrome
+2026-07-23 17:16:23,945 INFO PASS test_diagnosis_upload[dummy_image_2.jpg-Diagnosis notes for test 2]
+2026-07-23 17:16:26,134 INFO Closed browser
+2026-07-23 17:16:29,881 INFO Started chrome
+2026-07-23 17:16:30,228 INFO PASS test_diagnosis_upload[dummy_image_3.jpg-Diagnosis notes for test 3]
+2026-07-23 17:16:32,440 INFO Closed browser
+2026-07-23 17:16:36,710 INFO Started chrome
+2026-07-23 17:16:37,067 INFO PASS test_diagnosis_upload[dummy_image_4.jpg-Diagnosis notes for test 4]
+2026-07-23 17:16:39,291 INFO Closed browser
+2026-07-23 17:16:43,112 INFO Started chrome
+2026-07-23 17:16:43,431 INFO PASS test_diagnosis_upload[dummy_image_5.jpg-Diagnosis notes for test 5]
+2026-07-23 17:16:45,697 INFO Closed browser
+2026-07-23 17:16:49,662 INFO Started chrome
+2026-07-23 17:16:50,231 INFO PASS test_diagnosis_upload[dummy_image_6.jpg-Diagnosis notes for test 6]
+2026-07-23 17:16:52,402 INFO Closed browser
+2026-07-23 17:16:57,063 INFO Started chrome
+2026-07-23 17:16:57,462 INFO PASS test_diagnosis_upload[dummy_image_7.jpg-Diagnosis notes for test 7]
+2026-07-23 17:16:59,655 INFO Closed browser
+2026-07-23 17:17:03,539 INFO Started chrome
+2026-07-23 17:17:03,819 INFO PASS test_diagnosis_upload[dummy_image_8.jpg-Diagnosis notes for test 8]
+2026-07-23 17:17:06,029 INFO Closed browser
+2026-07-23 17:17:09,775 INFO Started chrome
+2026-07-23 17:17:10,351 INFO PASS test_diagnosis_upload[dummy_image_9.jpg-Diagnosis notes for test 9]
+2026-07-23 17:17:12,554 INFO Closed browser
+2026-07-23 17:17:16,148 INFO Started chrome
+2026-07-23 17:17:16,627 INFO PASS test_diagnosis_upload[dummy_image_10.jpg-Diagnosis notes for test 10]
+2026-07-23 17:17:18,865 INFO Closed browser
+2026-07-23 17:17:22,565 INFO Started chrome
+2026-07-23 17:17:22,970 INFO PASS test_diagnosis_upload[dummy_image_11.jpg-Diagnosis notes for test 11]
+2026-07-23 17:17:25,211 INFO Closed browser
+2026-07-23 17:17:29,354 INFO Started chrome
+2026-07-23 17:17:29,687 INFO PASS test_diagnosis_upload[dummy_image_12.jpg-Diagnosis notes for test 12]
+2026-07-23 17:17:32,726 INFO Closed browser
+2026-07-23 17:17:36,819 INFO Started chrome
+2026-07-23 17:17:37,192 INFO PASS test_diagnosis_upload[dummy_image_13.jpg-Diagnosis notes for test 13]
+2026-07-23 17:17:39,682 INFO Closed browser
+2026-07-23 17:17:43,339 INFO Started chrome
+2026-07-23 17:17:43,632 INFO PASS test_diagnosis_upload[dummy_image_14.jpg-Diagnosis notes for test 14]
+2026-07-23 17:17:45,854 INFO Closed browser
+2026-07-23 17:17:49,742 INFO Started chrome
+2026-07-23 17:17:50,211 INFO PASS test_diagnosis_upload[invalid_file.txt-This should fail because it's a text file]
+2026-07-23 17:17:52,707 INFO Closed browser
+2026-07-23 17:17:58,586 INFO Started chrome
+2026-07-23 17:17:59,323 INFO PASS test_diagnosis_upload[large_image.jpg-This image is too large]
+2026-07-23 17:18:01,526 INFO Closed browser
+2026-07-23 17:18:05,444 INFO Started chrome
+2026-07-23 17:18:06,096 INFO PASS test_diagnosis_upload[-Testing empty upload]
+2026-07-23 17:18:08,271 INFO Closed browser
+2026-07-23 17:18:12,297 INFO Started chrome
+2026-07-23 17:18:12,757 INFO PASS test_diagnosis_upload[malicious.exe-Testing malicious file upload]
+2026-07-23 17:18:14,969 INFO Closed browser
+2026-07-23 17:18:18,847 INFO Started chrome
+2026-07-23 17:18:19,421 INFO PASS test_navigation[/dashboard]
+2026-07-23 17:18:21,603 INFO Closed browser
+2026-07-23 17:18:25,691 INFO Started chrome
+2026-07-23 17:18:26,258 INFO PASS test_navigation[/patients]
+2026-07-23 17:18:28,495 INFO Closed browser
+2026-07-23 17:18:32,667 INFO Started chrome
+2026-07-23 17:18:33,223 INFO PASS test_navigation[/patients/add]
+2026-07-23 17:18:35,376 INFO Closed browser
+2026-07-23 17:18:39,537 INFO Started chrome
+2026-07-23 17:18:39,955 INFO PASS test_navigation[/diagnose]
+2026-07-23 17:18:42,221 INFO Closed browser
+2026-07-23 17:18:46,204 INFO Started chrome
+2026-07-23 17:18:46,585 INFO PASS test_navigation[/reports]
+2026-07-23 17:18:48,842 INFO Closed browser
+2026-07-23 17:18:52,705 INFO Started chrome
+2026-07-23 17:18:53,108 INFO PASS test_navigation[/login]
+2026-07-23 17:18:55,276 INFO Closed browser
+2026-07-23 17:18:59,068 INFO Started chrome
+2026-07-23 17:18:59,555 INFO PASS test_navigation[/signup]
+2026-07-23 17:19:01,797 INFO Closed browser
+2026-07-23 17:19:06,783 INFO Started chrome
+2026-07-23 17:19:07,471 INFO PASS test_add_patient_valid[Patient 1-21-Female-555-0101]
+2026-07-23 17:19:09,680 INFO Closed browser
+2026-07-23 17:19:13,548 INFO Started chrome
+2026-07-23 17:19:14,221 INFO PASS test_add_patient_valid[Patient 2-22-Male-555-0102]
+2026-07-23 17:19:16,463 INFO Closed browser
+2026-07-23 17:19:20,359 INFO Started chrome
+2026-07-23 17:19:20,734 INFO PASS test_add_patient_valid[Patient 3-23-Female-555-0103]
+2026-07-23 17:19:22,929 INFO Closed browser
+2026-07-23 17:19:26,823 INFO Started chrome
+2026-07-23 17:19:27,191 INFO PASS test_add_patient_valid[Patient 4-24-Male-555-0104]
+2026-07-23 17:19:29,407 INFO Closed browser
+2026-07-23 17:19:33,141 INFO Started chrome
+2026-07-23 17:19:33,548 INFO PASS test_add_patient_valid[Patient 5-25-Female-555-0105]
+2026-07-23 17:19:35,790 INFO Closed browser
+2026-07-23 17:19:39,496 INFO Started chrome
+2026-07-23 17:19:39,757 INFO PASS test_add_patient_valid[Patient 6-26-Male-555-0106]
+2026-07-23 17:19:41,989 INFO Closed browser
+2026-07-23 17:19:45,783 INFO Started chrome
+2026-07-23 17:19:46,245 INFO PASS test_add_patient_valid[Patient 7-27-Female-555-0107]
+2026-07-23 17:19:48,627 INFO Closed browser
+2026-07-23 17:19:52,440 INFO Started chrome
+2026-07-23 17:19:53,016 INFO PASS test_add_patient_valid[Patient 8-28-Male-555-0108]
+2026-07-23 17:19:55,154 INFO Closed browser
+2026-07-23 17:19:58,940 INFO Started chrome
+2026-07-23 17:19:59,765 INFO PASS test_add_patient_valid[Patient 9-29-Female-555-0109]
+2026-07-23 17:20:01,939 INFO Closed browser
+2026-07-23 17:20:06,002 INFO Started chrome
+2026-07-23 17:20:06,644 INFO PASS test_add_patient_valid[Patient 10-30-Male-555-0110]
+2026-07-23 17:20:08,872 INFO Closed browser
+2026-07-23 17:20:13,090 INFO Started chrome
+2026-07-23 17:20:13,625 INFO PASS test_add_patient_valid[Patient 11-31-Female-555-0111]
+2026-07-23 17:20:15,811 INFO Closed browser
+2026-07-23 17:20:19,737 INFO Started chrome
+2026-07-23 17:20:20,128 INFO PASS test_add_patient_valid[Patient 12-32-Male-555-0112]
+2026-07-23 17:20:22,334 INFO Closed browser
+2026-07-23 17:20:26,222 INFO Started chrome
+2026-07-23 17:20:26,553 INFO PASS test_add_patient_valid[Patient 13-33-Female-555-0113]
+2026-07-23 17:20:28,764 INFO Closed browser
+2026-07-23 17:20:32,483 INFO Started chrome
+2026-07-23 17:20:33,030 INFO PASS test_add_patient_valid[Patient 14-34-Male-555-0114]
+2026-07-23 17:20:35,264 INFO Closed browser
+2026-07-23 17:20:39,330 INFO Started chrome
+2026-07-23 17:20:39,772 INFO PASS test_add_patient_valid[Patient 15-35-Female-555-0115]
+2026-07-23 17:20:41,917 INFO Closed browser
+2026-07-23 17:20:46,047 INFO Started chrome
+2026-07-23 17:20:46,344 INFO PASS test_add_patient_valid[Patient 16-36-Male-555-0116]
+2026-07-23 17:20:48,505 INFO Closed browser
+2026-07-23 17:20:52,185 INFO Started chrome
+2026-07-23 17:20:52,516 INFO PASS test_add_patient_valid[Patient 17-37-Female-555-0117]
+2026-07-23 17:20:54,808 INFO Closed browser
+2026-07-23 17:20:58,493 INFO Started chrome
+2026-07-23 17:20:59,126 INFO PASS test_add_patient_valid[Patient 18-38-Male-555-0118]
+2026-07-23 17:21:01,328 INFO Closed browser
+2026-07-23 17:21:05,559 INFO Started chrome
+2026-07-23 17:21:05,912 INFO PASS test_add_patient_valid[Patient 19-39-Female-555-0119]
+2026-07-23 17:21:08,150 INFO Closed browser
+2026-07-23 17:21:11,917 INFO Started chrome
+2026-07-23 17:21:12,193 INFO PASS test_add_patient_valid[Patient 20-40-Male-555-0120]
+2026-07-23 17:21:14,425 INFO Closed browser
+2026-07-23 17:21:18,157 INFO Started chrome
+2026-07-23 17:21:18,859 INFO PASS test_add_patient_valid[Patient 21-41-Female-555-0121]
+2026-07-23 17:21:21,022 INFO Closed browser
+2026-07-23 17:21:24,845 INFO Started chrome
+2026-07-23 17:21:25,142 INFO PASS test_add_patient_valid[Patient 22-42-Male-555-0122]
+2026-07-23 17:21:27,352 INFO Closed browser
+2026-07-23 17:21:31,110 INFO Started chrome
+2026-07-23 17:21:31,724 INFO PASS test_add_patient_valid[Patient 23-43-Female-555-0123]
+2026-07-23 17:21:33,953 INFO Closed browser
+2026-07-23 17:21:37,650 INFO Started chrome
+2026-07-23 17:21:37,951 INFO PASS test_add_patient_valid[Patient 24-44-Male-555-0124]
+2026-07-23 17:21:40,224 INFO Closed browser
+2026-07-23 17:21:43,893 INFO Started chrome
+2026-07-23 17:21:44,201 INFO PASS test_add_patient_valid[Patient 25-45-Female-555-0125]
+2026-07-23 17:21:46,433 INFO Closed browser
+2026-07-23 17:21:50,321 INFO Started chrome
+2026-07-23 17:21:51,194 INFO PASS test_search_patients[Search 0]
+2026-07-23 17:21:53,394 INFO Closed browser
+2026-07-23 17:21:57,051 INFO Started chrome
+2026-07-23 17:21:57,351 INFO PASS test_search_patients[Search 1]
+2026-07-23 17:21:59,553 INFO Closed browser
+2026-07-23 17:22:03,269 INFO Started chrome
+2026-07-23 17:22:03,575 INFO PASS test_search_patients[Search 2]
+2026-07-23 17:22:05,802 INFO Closed browser
+2026-07-23 17:22:09,423 INFO Started chrome
+2026-07-23 17:22:09,747 INFO PASS test_search_patients[Search 3]
+2026-07-23 17:22:11,951 INFO Closed browser
+2026-07-23 17:22:15,824 INFO Started chrome
+2026-07-23 17:22:16,229 INFO PASS test_search_patients[Search 4]
+2026-07-23 17:22:18,419 INFO Closed browser
+2026-07-23 17:22:22,191 INFO Started chrome
+2026-07-23 17:22:22,504 INFO PASS test_search_patients[Search 5]
+2026-07-23 17:22:24,782 INFO Closed browser
+2026-07-23 17:22:28,464 INFO Started chrome
+2026-07-23 17:22:28,872 INFO PASS test_search_patients[Search 6]
+2026-07-23 17:22:31,131 INFO Closed browser
+2026-07-23 17:22:34,927 INFO Started chrome
+2026-07-23 17:22:35,246 INFO PASS test_search_patients[Search 7]
+2026-07-23 17:22:37,489 INFO Closed browser
+2026-07-23 17:22:41,635 INFO Started chrome
+2026-07-23 17:22:41,911 INFO PASS test_search_patients[Search 8]
+2026-07-23 17:22:44,351 INFO Closed browser
+2026-07-23 17:22:48,289 INFO Started chrome
+2026-07-23 17:22:48,683 INFO PASS test_search_patients[Search 9]
+2026-07-23 17:22:50,884 INFO Closed browser
+2026-07-23 17:22:54,771 INFO Started chrome
+2026-07-23 17:22:55,165 INFO PASS test_search_patients[]
+2026-07-23 17:22:57,356 INFO Closed browser
+2026-07-23 17:23:01,323 INFO Started chrome
+2026-07-23 17:23:01,602 INFO PASS test_search_patients[NonexistentPatientName12345]
+2026-07-23 17:23:03,833 INFO Closed browser
+2026-07-23 17:23:07,846 INFO Started chrome
+2026-07-23 17:23:08,128 INFO PASS test_search_patients[<script>alert(1)</script>]
+2026-07-23 17:23:10,326 INFO Closed browser
+2026-07-23 17:23:14,171 INFO Started chrome
+2026-07-23 17:23:14,522 INFO PASS test_search_patients['; DROP TABLE patients;--]
+2026-07-23 17:23:16,719 INFO Closed browser
+2026-07-23 17:23:22,668 INFO Started chrome
+2026-07-23 17:23:23,753 INFO PASS test_search_patients[John]
+2026-07-23 17:23:25,894 INFO Closed browser
+2026-07-23 17:23:50,749 INFO Started chrome
+2026-07-23 17:23:51,959 INFO PASS test_reports_search[Report Query 0]
+2026-07-23 17:23:55,042 INFO Closed browser
+2026-07-23 17:23:59,016 INFO Started chrome
+2026-07-23 17:23:59,743 INFO PASS test_reports_search[Report Query 1]
+2026-07-23 17:24:01,968 INFO Closed browser
+2026-07-23 17:24:06,416 INFO Started chrome
+2026-07-23 17:24:06,822 INFO PASS test_reports_search[Report Query 2]
+2026-07-23 17:24:09,035 INFO Closed browser
+2026-07-23 17:24:12,705 INFO Started chrome
+2026-07-23 17:24:13,114 INFO PASS test_reports_search[Report Query 3]
+2026-07-23 17:24:15,301 INFO Closed browser
+2026-07-23 17:24:19,106 INFO Started chrome
+2026-07-23 17:24:19,573 INFO PASS test_reports_search[Report Query 4]
+2026-07-23 17:24:21,759 INFO Closed browser
+2026-07-23 17:24:25,610 INFO Started chrome
+2026-07-23 17:24:25,992 INFO PASS test_reports_search[Report Query 5]
+2026-07-23 17:24:28,166 INFO Closed browser
+2026-07-23 17:24:31,885 INFO Started chrome
+2026-07-23 17:24:32,431 INFO PASS test_reports_search[Report Query 6]
+2026-07-23 17:24:34,593 INFO Closed browser
+2026-07-23 17:24:38,347 INFO Started chrome
+2026-07-23 17:24:38,654 INFO PASS test_reports_search[Report Query 7]
+2026-07-23 17:24:40,908 INFO Closed browser
+2026-07-23 17:24:44,683 INFO Started chrome
+2026-07-23 17:24:44,952 INFO PASS test_reports_search[Report Query 8]
+2026-07-23 17:24:47,143 INFO Closed browser
+2026-07-23 17:24:50,868 INFO Started chrome
+2026-07-23 17:24:51,443 INFO PASS test_reports_search[Report Query 9]
+2026-07-23 17:24:53,608 INFO Closed browser
+2026-07-23 17:24:57,397 INFO Started chrome
+2026-07-23 17:24:57,687 INFO PASS test_reports_search[]
+2026-07-23 17:24:59,974 INFO Closed browser
+2026-07-23 17:25:03,785 INFO Started chrome
+2026-07-23 17:25:04,108 INFO PASS test_reports_search[12345]
+2026-07-23 17:25:06,304 INFO Closed browser
+2026-07-23 17:25:10,200 INFO Started chrome
+2026-07-23 17:25:10,582 INFO PASS test_reports_search[SpecialChars!@#$%]
+2026-07-23 17:25:12,808 INFO Closed browser
+2026-07-23 17:25:16,417 INFO Started chrome
+2026-07-23 17:25:16,724 INFO PASS test_reports_search[A very long search query that exceeds the typical length of a standard search string]
+2026-07-23 17:25:18,946 INFO Closed browser
+2026-07-23 17:25:22,819 INFO Started chrome
+2026-07-23 17:25:23,192 INFO PASS test_reports_filter[date-2023-01-01]
+2026-07-23 17:25:25,396 INFO Closed browser
+2026-07-23 17:25:29,053 INFO Started chrome
+2026-07-23 17:25:29,526 INFO PASS test_reports_filter[date-today]
+2026-07-23 17:25:31,721 INFO Closed browser
+2026-07-23 17:25:35,723 INFO Started chrome
+2026-07-23 17:25:36,274 INFO PASS test_reports_filter[status-pending]
+2026-07-23 17:25:38,486 INFO Closed browser
+2026-07-23 17:25:43,047 INFO Started chrome
+2026-07-23 17:25:43,431 INFO PASS test_reports_filter[status-completed]
+2026-07-23 17:25:45,647 INFO Closed browser
+2026-07-23 17:25:49,631 INFO Started chrome
+2026-07-23 17:25:49,990 INFO PASS test_reports_filter[status-failed]
+2026-07-23 17:25:52,179 INFO Closed browser
+2026-07-23 17:25:55,838 INFO Started chrome
+2026-07-23 17:25:56,313 INFO PASS test_reports_filter[doctor-Dr. Smith]
+2026-07-23 17:25:58,472 INFO Closed browser
+2026-07-23 17:26:02,452 INFO Started chrome
+2026-07-23 17:26:02,781 INFO PASS test_reports_filter[patient-John Doe]
+2026-07-23 17:26:05,054 INFO Closed browser
+2026-07-23 17:26:08,803 INFO Started chrome
+2026-07-23 17:26:09,485 INFO PASS test_reports_filter[invalid_filter-invalid_value]
+2026-07-23 17:26:11,706 INFO Closed browser

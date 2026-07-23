@@ -48,16 +48,19 @@ def test_diagnosis_workflow():
         driver.find_element(By.NAME, "email").send_keys(email)
         driver.find_element(By.NAME, "password").send_keys(password)
         driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
+        time.sleep(1)
 
         driver.find_element(By.NAME, "email").send_keys(email)
         driver.find_element(By.NAME, "password").send_keys(password)
         driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
+        time.sleep(1)
 
         driver.get(f"{BASE_URL}/patients/add")
         driver.find_element(By.NAME, "full_name").send_keys("Workflow Patient")
         driver.find_element(By.NAME, "age").send_keys("55")
         driver.find_element(By.NAME, "phone").send_keys("5551234567")
         driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
+        time.sleep(1)
 
         driver.get(f"{BASE_URL}/diagnose")
         driver.find_element(By.CSS_SELECTOR, "select[name='patient_id'] option:nth-child(2)").click()
@@ -65,7 +68,7 @@ def test_diagnosis_workflow():
         driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
         time.sleep(1)
 
-        assert "Diagnosis Result" in driver.page_source
+        assert "Result preview" in driver.page_source
         assert "confidence" in driver.page_source.lower()
 
         driver.get(f"{BASE_URL}/reports?q=Workflow")

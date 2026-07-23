@@ -48,9 +48,13 @@ def pytest_runtest_makereport(item, call):
         return
     logger = item.funcargs.get("logger")
     if report.failed and "driver" in item.funcargs:
-        path = capture_screenshot(item.funcargs["driver"], ROOT / "screenshots", item.name)
-        report.user_properties.append(("screenshot", str(path)))
-        if logger:
-            logger.error("FAIL %s screenshot=%s", item.name, path)
+        try:
+            path = capture_screenshot(item.funcargs["driver"], ROOT / "screenshots", item.name)
+            report.user_properties.append(("screenshot", str(path)))
+            if logger:
+                logger.error("FAIL %s screenshot=%s", item.name, path)
+        except Exception as e:
+            if logger:
+                logger.error("FAIL %s screenshot failed: %s", item.name, str(e))
     elif report.passed and logger:
         logger.info("PASS %s", item.name)

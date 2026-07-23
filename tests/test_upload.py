@@ -37,9 +37,11 @@ def signup_and_login(driver):
     driver.find_element(By.NAME, "email").send_keys(email)
     driver.find_element(By.NAME, "password").send_keys(password)
     driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
+    time.sleep(1)
     driver.find_element(By.NAME, "email").send_keys(email)
     driver.find_element(By.NAME, "password").send_keys(password)
     driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
+    time.sleep(1)
 
 
 def create_patient(driver):
@@ -47,6 +49,7 @@ def create_patient(driver):
     driver.find_element(By.NAME, "full_name").send_keys("Upload Patient")
     driver.find_element(By.NAME, "age").send_keys("42")
     driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
+    time.sleep(1)
 
 
 def create_test_image():
