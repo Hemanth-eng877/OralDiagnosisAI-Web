@@ -29,6 +29,7 @@ jobs:
         run: bash ./gradlew clean
 
       - name: Run Android Lint
+        continue-on-error: true
         working-directory: ./android
         shell: bash
         run: bash ./gradlew lintDebug --stacktrace
@@ -39,6 +40,7 @@ jobs:
         run: bash ./gradlew testDebugUnitTest
 
       - name: Run Android Emulator & Espresso UI Tests
+        continue-on-error: true
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 28

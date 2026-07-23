@@ -42,7 +42,8 @@ jobs:
       - name: Run Python tests
         id: python_tests
         run: |
-          pytest -q --junitxml=reports/python-tests.xml --cov=. --cov-report=xml:reports/coverage.xml
+          mkdir -p reports artifacts
+          pytest tests -q --junitxml=reports/python-tests.xml --cov=. --cov-report=xml:reports/coverage.xml
 
       - name: Run frontend tests
         id: frontend_tests
@@ -50,9 +51,7 @@ jobs:
         run: |
           npm test -- --reporter=junit --outputFile=../reports/frontend-tests.xml
 
-      - name: Generate test reports directory
-        run: |
-          mkdir -p reports artifacts
+
 
       - name: Upload test artifacts
         if: always()
