@@ -2,6 +2,7 @@ name: Security Review
 
 on:
   workflow_call:
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -66,6 +67,7 @@ jobs:
       # the final gate and its result is recorded in the generated summary.
       - name: Run Dependency Review
         id: dependency_review
+        if: github.event_name == 'pull_request'
         continue-on-error: true
         uses: actions/dependency-review-action@v4
         with:

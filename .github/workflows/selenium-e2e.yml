@@ -2,6 +2,7 @@ name: Selenium E2E
 
 on:
   workflow_call:
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -34,10 +35,6 @@ jobs:
       - name: Install Chrome
         uses: browser-actions/setup-chrome@v1
 
-      - name: Install ChromeDriver
-        id: chromedriver
-        uses: nanasess/setup-chromedriver@v2
-
       - name: Install Selenium dependencies
         run: |
           python -m pip install --upgrade pip
@@ -45,6 +42,17 @@ jobs:
 
       - name: Prepare report directories
         run: mkdir -p reports screenshots logs selenium/reports selenium/screenshots
+
+      - name: Configure Firebase Key
+        env:
+          FIREBASE_KEY: ${{ secrets.FIREBASE_KEY }}
+        run: |
+          if [ -n "$FIREBASE_KEY" ]; then
+            echo "$FIREBASE_KEY" > firebase-key.json
+          else
+            echo "FIREBASE_KEY secret is not set, but required for tests."
+            exit 1
+          fi
 
       - name: Start application
         run: |
@@ -61,8 +69,6 @@ jobs:
       - name: Run all Selenium tests and generate reports
         id: full_suite
         continue-on-error: true
-        env:
-          CHROMEDRIVER: ${{ steps.chromedriver.outputs.chromedriver-path }}
         run: |
           START_TIME=$(date +%s)
           python -m pytest selenium/tests \
@@ -117,7 +123,5 @@ jobs:
       # Only the critical-path smoke tests determine the workflow result.
       - name: Gate on critical smoke tests
         id: smoke_tests
-        env:
-          CHROMEDRIVER: ${{ steps.chromedriver.outputs.chromedriver-path }}
         run: |
           python -m pytest selenium/tests -m smoke --junitxml=reports/critical-smoke-results.xml

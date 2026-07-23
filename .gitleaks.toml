@@ -13,3 +13,6 @@ paths = [
     '''selenium/.*''',
     '''android/app/build/.*'''
 ]
+regexes = [
+    '''change-this-secret-key-in-production'''
+]

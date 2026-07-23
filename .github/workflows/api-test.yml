@@ -2,6 +2,7 @@ name: Backend API Tests
 
 on:
   workflow_call:
+  workflow_dispatch:
 
 jobs:
   api-test:
@@ -21,6 +22,17 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt pytest
+
+      - name: Configure Firebase Key
+        env:
+          FIREBASE_KEY: ${{ secrets.FIREBASE_KEY }}
+        run: |
+          if [ -n "$FIREBASE_KEY" ]; then
+            echo "$FIREBASE_KEY" > firebase-key.json
+          else
+            echo "FIREBASE_KEY secret is not set, but required for tests."
+            exit 1
+          fi
 
       - name: Run Backend REST API Tests
         id: api_tests
