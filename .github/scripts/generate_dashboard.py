@@ -4,7 +4,7 @@ import glob
 import json
 import time
 import datetime
-import xml.etree.ElementTree as ET
+import defusedxml.ElementTree as ET
 from pathlib import Path
 
 def parse_junit_xml(pattern):
