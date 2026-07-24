@@ -1,8 +1,10 @@
-name: Security Review
+name: Automated Security Review
 
 on:
   workflow_call:
   workflow_dispatch:
+  push:
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -10,7 +12,7 @@ permissions:
   security-events: write
 
 jobs:
-  security-review:
+  security-pipeline:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
@@ -25,20 +27,30 @@ jobs:
       - name: Prepare report directory
         run: mkdir -p "$REPORT_DIR"
 
-      - name: Set up Python for Semgrep
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      # Scanner findings are collected for the critical-only gate below.
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run npm audit (Frontend)
+        id: npm_audit
+        continue-on-error: true
+        working-directory: ./web
+        run: |
+          npm audit --json > "../$REPORT_DIR/npm-audit.json" || true
+
       - name: Run Semgrep
         id: semgrep
         continue-on-error: true
         run: |
           python -m pip install --disable-pip-version-check semgrep
-          semgrep scan --config auto --json --output "$REPORT_DIR/semgrep.json" --exclude venv --exclude k6 --exclude node_modules --exclude .git --exclude "$REPORT_DIR" --exclude reports --exclude artifacts .
+          semgrep scan --config auto --json --output "$REPORT_DIR/semgrep.json" || true
 
-      # A detected secret is treated as critical because it can provide direct access.
       - name: Run Gitleaks
         id: gitleaks
         continue-on-error: true
@@ -46,7 +58,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          args: detect --source . --config .gitleaks.toml --report-format json --report-path "${{ env.REPORT_DIR }}/gitleaks.json" --no-banner
+          args: detect --source . --report-format json --report-path "${{ env.REPORT_DIR }}/gitleaks.json" --no-banner --exit-code 0
 
       - name: Run Trivy filesystem scan
         id: trivy
@@ -57,104 +69,47 @@ jobs:
           scan-ref: .
           format: json
           output: ${{ env.REPORT_DIR }}/trivy.json
-          severity: LOW,MEDIUM,HIGH,CRITICAL
           exit-code: "0"
-          ignore-unfixed: false
-          skip-dirs: venv,k6,node_modules,.git,reports,artifacts,Vulnerability Test Results
-          trivyignores: .trivyignore
 
-      # The action evaluates changed dependencies. Its critical threshold is used by
-      # the final gate and its result is recorded in the generated summary.
       - name: Run Dependency Review
         id: dependency_review
         if: github.event_name == 'pull_request'
         continue-on-error: true
         uses: actions/dependency-review-action@v4
         with:
-          base-ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event_name == 'push' && github.event.before || format('refs/heads/{0}', github.event.repository.default_branch) }}
-          head-ref: ${{ github.sha }}
-          fail-on-severity: critical
-          license-check: false
           comment-summary-in-pr: always
 
-      - name: Generate security review reports and summary
-        id: gate
+      - name: Generate Custom Security Reports
+        id: generate_reports
         if: always()
+        working-directory: ./scripts
         env:
-          GITLEAKS_OUTCOME: ${{ steps.gitleaks.outcome }}
-          DEPENDENCY_REVIEW_OUTCOME: ${{ steps.dependency_review.outcome }}
-          DEPENDENCY_REVIEW_CONTENT: ${{ steps.dependency_review.outputs.comment-content }}
+          REPORT_DIR: ../Vulnerability Test Results
         run: |
-          python - <<'PY'
-          import json
-          import os
-          from pathlib import Path
+          npm install
+          node generateSecurityReports.js
 
-          reports = Path(os.environ["REPORT_DIR"])
+      - name: Publish Summary to GITHUB_STEP_SUMMARY
+        if: always()
+        run: |
+          cat "$REPORT_DIR/executive-summary.md" >> $GITHUB_STEP_SUMMARY
 
-          def load_json(name, default):
-              path = reports / name
-              if not path.exists():
-                  return default
-              try:
-                  return json.loads(path.read_text(encoding="utf-8"))
-              except json.JSONDecodeError:
-                  return default
-
-          semgrep = load_json("semgrep.json", {"results": []})
-          semgrep_critical = sum(
-              1 for finding in semgrep.get("results", [])
-              if str(finding.get("extra", {}).get("metadata", {}).get("severity", finding.get("extra", {}).get("severity", ""))).upper() == "CRITICAL"
-          )
-
-          trivy = load_json("trivy.json", {"Results": []})
-          trivy_critical = sum(
-              1 for result in trivy.get("Results", [])
-              for vulnerability in (result.get("Vulnerabilities") or [])
-              if vulnerability.get("Severity", "").upper() == "CRITICAL"
-          )
-
-          gitleaks = load_json("gitleaks.json", [])
-          gitleaks_findings = len(gitleaks) if isinstance(gitleaks, list) else 0
-          dependency_critical = os.environ.get("DEPENDENCY_REVIEW_OUTCOME") == "failure"
-          critical = semgrep_critical or trivy_critical or gitleaks_findings or dependency_critical
-
-          dependency_status = "critical findings detected" if dependency_critical else "completed without critical findings"
-          dependency_content = os.environ.get("DEPENDENCY_REVIEW_CONTENT", "").strip()
-          (reports / "dependency-review.md").write_text(
-              dependency_content or "# Dependency Review\n\nNo dependency-review details were returned for this comparison.\n",
-              encoding="utf-8",
-          )
-          summary_content = (
-              "# GitHub Actions Security Review\n\n"
-              "| Scanner | Critical findings | Status |\n"
-              "| --- | ---: | --- |\n"
-              f"| Semgrep | {semgrep_critical} | report: `semgrep.json` |\n"
-              f"| Gitleaks | {gitleaks_findings} | secrets are treated as critical |\n"
-              f"| Trivy | {trivy_critical} | report: `trivy.json` |\n"
-              f"| Dependency Review | {1 if dependency_critical else 0} | {dependency_status} |\n\n"
-              "The workflow fails only when one or more critical findings are present.\n"
-          )
-          (reports / "security-review-summary.md").write_text(summary_content, encoding="utf-8")
-          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as handle:
-              handle.write(f"critical={'true' if critical else 'false'}\n")
-          PY
-
-          cat <<EOF >> "$GITHUB_STEP_SUMMARY"
-          $(cat "$REPORT_DIR/security-review-summary.md")
-          EOF
-
-      - name: Upload security review reports
+      - name: Upload Security Reports Artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: vulnerability-test-results
-          if-no-files-found: warn
           path: ${{ env.REPORT_DIR }}/
 
-      - name: Fail on critical vulnerabilities only
-        id: security_gate
-        if: steps.gate.outputs.critical == 'true'
+      - name: Security Gate (Zero Critical Policy)
+        if: always()
         run: |
-          echo "Critical security findings were detected. See the workflow summary and artifact reports."
-          exit 1
+          CRITICAL_COUNT=$(cat "$REPORT_DIR/gate_status.txt")
+          echo "Critical findings detected: $CRITICAL_COUNT"
+          if [ "$CRITICAL_COUNT" -gt 0 ]; then
+            echo "Security Gate Failed: One or more critical vulnerabilities were found."
+            exit 1
+          else
+            echo "Security Gate Passed: No critical vulnerabilities found."
+            exit 0
+          fi

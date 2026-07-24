@@ -1,0 +1,98 @@
+name: Deploy and E2E Test
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  e2e-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Frontend Dependencies & Build
+        working-directory: ./web
+        run: |
+          npm install
+          npm run build
+          mkdir -p dist/reports/latest
+          mkdir -p dist/reports/history/build-${{ github.run_number }}
+
+      - name: Start Vite Preview Server
+        working-directory: ./web
+        run: |
+          npx vite preview --port 5173 --host 127.0.0.1 &
+          echo "Waiting for Vite server to start..."
+          sleep 5
+          curl -sSf http://127.0.0.1:5173 > /dev/null || (echo "Server failed to start" && exit 1)
+          echo "TEST_BASE_URL=http://127.0.0.1:5173" >> $GITHUB_ENV
+
+      - name: Setup Chrome for Selenium
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+
+      - name: Install E2E Dependencies
+        working-directory: ./OralDiagnosisAIE2E
+        run: npm install
+
+      - name: Run Selenium E2E Test Suite (1,100 Assertions)
+        working-directory: ./OralDiagnosisAIE2E
+        env:
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: npm test
+
+      - name: Process Reports
+        if: always()
+        run: |
+          # Ensure directories exist
+          mkdir -p web/dist/reports/latest
+          mkdir -p web/dist/reports/history/build-${{ github.run_number }}
+          
+          # Copy HTML Report to Pages dist
+          cp OralDiagnosisAIE2E/execution-report.html web/dist/reports/latest/
+          cp OralDiagnosisAIE2E/execution-report.html web/dist/reports/history/build-${{ github.run_number }}/
+          
+          # Write summary to GitHub step summary
+          cat <<EOF >> $GITHUB_STEP_SUMMARY
+          ## Selenium E2E Execution Summary
+          - **Total Tests**: 1100
+          - **Build Number**: ${{ github.run_number }}
+          - **Commit**: ${{ github.sha }}
+          - **Artifact Links**: 
+            - [Latest Execution Report](./reports/latest/execution-report.html)
+            - [Build History Report](./reports/history/build-${{ github.run_number }}/execution-report.html)
+          - **Live GitHub Pages URL**: ${{ steps.deployment.outputs.page_url }}
+          EOF
+
+      - name: Upload pages artifact
+        if: always()
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./web/dist
+
+      - name: Deploy to GitHub Pages
+        if: always()
+        id: deployment
+        uses: actions/deploy-pages@v4

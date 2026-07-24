@@ -1,0 +1,12 @@
+{
+  "name": "security-reporter",
+  "version": "1.0.0",
+  "description": "Unified Security Reporting Engine",
+  "main": "generateSecurityReports.js",
+  "scripts": {
+    "start": "node generateSecurityReports.js"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0"
+  }
+}
