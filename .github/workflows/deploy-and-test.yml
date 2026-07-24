@@ -2,7 +2,9 @@ name: Deploy and E2E Test
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
+  pull_request:
   workflow_dispatch:
 
 permissions:

@@ -1,106 +1,72 @@
-name: k6 Load Test
+name: API Load Testing (k6)
 
 on:
-  workflow_call:
+  push:
+    branches:
+      - main
+  pull_request:
   workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  load-test:
-    name: 100 VU Application Load Test
+  performance-test:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-
-    env:
-      BASE_URL: http://127.0.0.1:5000
-      REPORT_DIR: reports
-      PYTHONUNBUFFERED: "1"
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
-          cache: pip
-
-      - name: Install application dependencies
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install -r requirements.txt gunicorn
+          python-version: '3.12'
 
       - name: Install k6
         uses: grafana/setup-k6-action@v1
 
-      - name: Prepare report directory
+      - name: Install Backend Dependencies
         run: |
-          mkdir -p reports logs
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Configure Firebase Key
-        env:
-          FIREBASE_KEY: ${{ secrets.FIREBASE_KEY }}
+      - name: Start Flask Backend
         run: |
-          if [ -n "$FIREBASE_KEY" ]; then
-            echo "$FIREBASE_KEY" > firebase-key.json
-          else
-            echo "FIREBASE_KEY secret is not set, but required for tests."
-            exit 1
-          fi
-
-      - name: Start Flask Application
-        run: |
-          gunicorn -w 4 -b 127.0.0.1:5000 app:app > logs/application.log 2>&1 &
-          echo $! > logs/application.pid
-
-          echo "Waiting for application..."
-
-          for i in {1..30}; do
-            if curl --silent --fail "$BASE_URL/login" > /dev/null; then
-              echo "Application Started Successfully."
-              exit 0
-            fi
-            sleep 2
+          python app.py &
+          echo "Waiting for Flask server to start..."
+          # Retry up to 10 times to check if port 5000 is open
+          for i in {1..10}; do
+            curl -sSf http://127.0.0.1:5000 > /dev/null && echo "Server is up!" && break || sleep 3
           done
+        env:
+          FLASK_APP: app.py
+          FLASK_ENV: testing
 
-          echo "Application failed to start."
-          cat logs/application.log
-          exit 1
-
-      - name: Run k6 Load Test
-        id: k6
-        continue-on-error: true
+      - name: Run k6 Performance Test
+        env:
+          BACKEND_URL: "http://127.0.0.1:5000"
         run: |
-          set +e
+          k6 run --summary-export=summary.json scripts/load-test.js
 
-          k6 run \
-            --summary-export=reports/load-test-results.json \
-            --out csv=reports/load-test-results.csv \
-            k6/load-test.js
+      - name: Parse Summary & Generate GitHub Report
+        if: always()
+        env:
+          GITHUB_STEP_SUMMARY: $GITHUB_STEP_SUMMARY
+        run: |
+          node scripts/parseK6Summary.js
 
-          echo "exit_code=$?" >> $GITHUB_OUTPUT
-
-      - name: Upload Reports
+      - name: Upload Performance Reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: k6-load-test-reports
+          name: k6-performance-reports
           path: |
-            reports/
-            logs/
-
-      - name: Stop Flask Application
-        if: always()
-        run: |
-          if [ -f logs/application.pid ]; then
-            kill $(cat logs/application.pid) || true
-          fi
-
-      - name: Fail workflow if k6 thresholds failed
-        if: always() && steps.k6.outputs.exit_code != '0'
-        run: |
-          echo "❌ k6 Load Test Thresholds Failed"
-          exit 1
+            summary.json
+            performance-summary.md

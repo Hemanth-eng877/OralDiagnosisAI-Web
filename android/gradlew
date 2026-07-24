@@ -246,3 +246,6 @@ eval "set -- $(
     )" '"$@"'
 
 exec "$JAVACMD" "$@"
+git add .
+git commit -m "Add Web E2E, Android Appium and Load Testing pipelines"
+git push origin main

@@ -1,7 +1,10 @@
 name: Backend API Tests
 
 on:
-  workflow_call:
+  push:
+    branches:
+      - main
+  pull_request:
   workflow_dispatch:
 
 jobs:
@@ -33,11 +36,11 @@ jobs:
             echo "{}" > firebase-key.json
           fi
 
-      - name: Run Backend REST API Tests
+      - name: Run API Tests
         id: api_tests
         run: |
           mkdir -p reports
-          pytest tests/test_api_endpoints.py --junitxml=reports/api-tests.xml -v
+          pytest tests/ --junitxml=reports/api-tests.xml -v
 
       - name: Upload API Test Reports
         if: always()
