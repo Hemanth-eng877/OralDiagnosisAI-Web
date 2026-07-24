@@ -3,7 +3,7 @@ import sys
 import os
 
 # Adjust path to import app
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../OralDiagnosisAI-Web")))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 try:
     from app import app as flask_app
 except ImportError:

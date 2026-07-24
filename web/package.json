@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest run --reporter=verbose"
+    "test": "vitest run"
   },
   "dependencies": {
     "firebase": "^9.22.0",
